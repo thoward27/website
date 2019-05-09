@@ -5,8 +5,8 @@ const getIcon = (name: string) => {
   let icon;
 
   switch (name) {
-    case 'twitter':
-      icon = ICONS.TWITTER;
+    case 'codepen':
+      icon = ICONS.CODEPEN;
       break;
     case 'github':
       icon = ICONS.GITHUB;
@@ -14,14 +14,14 @@ const getIcon = (name: string) => {
     case 'linkedin':
       icon = ICONS.LINKEDIN;
       break;
-    case 'telegram':
+    case 'facebook':
       icon = ICONS.TELEGRAM;
       break;
     case 'email':
       icon = ICONS.EMAIL;
       break;
-    case 'rss':
-      icon = ICONS.RSS;
+    case 'stackoverflow':
+      icon = ICONS.STACKOVERFLOW;
       break;
     default:
       icon = {};

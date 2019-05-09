@@ -28,10 +28,9 @@ module.exports = {
     bio: 'Software Engineer & Deep Learning Researcher',
     contacts: {
       email: 'info@tomhoward.codes',
-      telegram: '#',
-      twitter: '#',
+      codepen: 'thoward27',
       github: 'thoward27',
-      rss: '#',
+      stackoverflow: '5775688/thomas-howard',
       linkedin: 'thoward3'
     }
   }

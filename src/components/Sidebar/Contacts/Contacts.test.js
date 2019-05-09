@@ -6,11 +6,11 @@ describe('Contacts', () => {
   const props = {
     contacts: {
       email: '#',
-      twitter: '#',
+      codepen: '#',
       linkedin: '#',
       github: '#',
-      rss: '#',
-      telegram: '#'
+      stackoverflow: '#',
+      facebook: '#'
     }
   };
 

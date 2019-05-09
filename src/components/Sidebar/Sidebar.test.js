@@ -14,11 +14,11 @@ describe('Sidebar', () => {
               bio: 'bio',
               contacts: {
                 email: '#',
-                twitter: '#',
+                codepen: '#',
                 linkedin: '#',
                 github: '#',
-                rss: '#',
-                telegram: '#'
+                stackoverflow: '#',
+                facebook: '#'
               }
             },
             copyright: 'copyright',

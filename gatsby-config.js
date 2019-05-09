@@ -84,7 +84,7 @@ module.exports = {
                 }
               }
             `,
-          output: '/rss.xml'
+          output: '/stackoverflow.xml'
         }]
       }
     },
