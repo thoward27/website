@@ -1,20 +1,40 @@
 ---
-title: Perfecting the Art of Perfection
-date: "2016-09-01T23:46:37.121Z"
-template: "post"
+template: post
+title: 'Crash Course C++: Bottom Up'
+slug: /posts/crash-course-cpp-bottom-up/
 draft: false
-slug: "/posts/perfecting-the-art-of-perfection/"
-category: "Design Inspiration"
+date: 2019-05-09T23:46:37.121Z
+description: >-
+  Core Concepts of C++ Compressed Completely taught bottom up, or low-level to
+  high-level.
+category: Tutorials
 tags:
-  - "Handwriting"
-  - "Learning to write"
-description: "Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum."
+  - C++
+  - Tutorials
+  - Bottom-Up
 ---
+## Why C++
 
-Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum.
+* 3rd in Popularity (TIOBE Rating Jan. 2018), only behind Java and C
+* 2nd in Average Salary (Indeed.com): $115k
+* Extremely Fast (Beat Java/Go/Scala according to Google
+* Offers low-level functionality, with object-oriented tools
+* Can be used to build almost anything
 
-![Nulla faucibus vestibulum eros in tempus. Vestibulum tempor imperdiet velit nec dapibus](/media/image-2.jpg)
+## Evolution of C++
 
-Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. 
+* Developed during 1969-1973 in Bell Labs
+* Acts as a layer of abstraction over assembly
+* Is extremely flexible, but offers no protection
+* Very small feature set
+* Compiled with gcc
 
-Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.
+
+```C
+/* Hello World */
+#include <stdio.h>
+int main() {	
+    printf(“Hello, world!\n”);	
+    return 0;
+}
+```
