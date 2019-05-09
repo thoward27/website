@@ -1,21 +1,21 @@
 'use strict';
 
 module.exports = {
-  url: 'https://lumen.netlify.com',
-  title: 'Blog by John Doe',
-  subtitle: 'Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.',
+  url: 'https://tomhoward.codes',
+  title: 'Tom Howard',
+  subtitle: 'Software Engineering and Deep Learning Research',
   copyright: '© All rights reserved.',
   disqusShortname: '',
-  postsPerPage: 4,
-  googleAnalyticsId: 'UA-73379983-2',
+  postsPerPage: 8,
+  googleAnalyticsId: 'UA-139912709-1',
   menu: [
     {
       label: 'Articles',
       path: '/'
     },
     {
-      label: 'About me',
-      path: '/pages/about'
+      label: 'Resume',
+      path: '/pages/resume'
     },
     {
       label: 'Contact me',
@@ -23,14 +23,14 @@ module.exports = {
     }
   ],
   author: {
-    name: 'John Doe',
+    name: 'Tom Howard',
     photo: '/photo.jpg',
-    bio: 'Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.',
+    bio: 'Software Engineer & Deep Learning Researcher',
     contacts: {
-      email: '#',
+      email: 'info@tomhoward.codes',
       telegram: '#',
       twitter: '#',
-      github: '#',
+      github: 'thoward27',
       rss: '#',
       vkontakte: '#'
     }
