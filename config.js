@@ -3,7 +3,7 @@
 module.exports = {
   url: 'https://tomhoward.codes',
   title: 'Tom Howard',
-  subtitle: 'Software Engineering and Deep Learning Research',
+  subtitle: 'Software Engineer & Deep Learning Researcher',
   copyright: '',
   disqusShortname: '',
   postsPerPage: 8,
