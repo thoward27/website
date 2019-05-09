@@ -1,16 +1,23 @@
-/** 
+/**
  * Variables
  */
 
 // Colors
-$color-base: #222;
-$color-primary: #5D93FF;
-$color-secondary: #F7A046;
+$color-blue: #53969F;
+$color-gray: #292828;
+$color-green: #AFC077;
+$color-red: #A2351E;
+$color-orange: #F7882F;
+$color-beige: #dbc8aa;
+$color-white: #F8EFE6;
 
-$color-white: #FFF;
-$color-gray: lighten($color-base, 40%);
-$color-gray-border: lighten($color-base, 77%);
-$color-gray-bg: lighten($color-base, 79%);
+$color-background: $color-gray;
+$color-base: $color-white;
+$color-primary: #53969f;
+$color-secondary: #f7882f;
+
+$color-gray-border: lighten($color-background, 40%);
+$color-gray-bg: $color-base;
 
 // Typographic
 $typographic-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
