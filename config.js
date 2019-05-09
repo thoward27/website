@@ -32,7 +32,7 @@ module.exports = {
       twitter: '#',
       github: 'thoward27',
       rss: '#',
-      vkontakte: '#'
+      linkedin: '#'
     }
   }
 };

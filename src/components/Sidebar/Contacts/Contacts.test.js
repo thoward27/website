@@ -7,7 +7,7 @@ describe('Contacts', () => {
     contacts: {
       email: '#',
       twitter: '#',
-      vkontakte: '#',
+      linkedin: '#',
       github: '#',
       rss: '#',
       telegram: '#'

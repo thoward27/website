@@ -15,7 +15,7 @@ describe('Sidebar', () => {
               contacts: {
                 email: '#',
                 twitter: '#',
-                vkontakte: '#',
+                linkedin: '#',
                 github: '#',
                 rss: '#',
                 telegram: '#'

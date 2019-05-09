@@ -57,7 +57,7 @@ export const Sidebar = (props: Props) => (
                 github
                 email
                 rss
-                vkontakte
+                linkedin 
               }
             }
           }
