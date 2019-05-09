@@ -4,7 +4,7 @@ module.exports = {
   url: 'https://tomhoward.codes',
   title: 'Tom Howard',
   subtitle: 'Software Engineering and Deep Learning Research',
-  copyright: '© All rights reserved.',
+  copyright: '',
   disqusShortname: '',
   postsPerPage: 8,
   googleAnalyticsId: 'UA-139912709-1',
