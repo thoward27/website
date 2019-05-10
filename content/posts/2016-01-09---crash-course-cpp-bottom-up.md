@@ -37,7 +37,7 @@ While this article presents C++ from a bottom-up perspective, it's compatriot us
 - Compiled with gcc
 
 Here's an example of a `hello world` program in C:
-```C
+```c
 /* Hello World */
 #include <stdio.h>
 int main() {	
@@ -53,7 +53,7 @@ int main() {
 - Expanded feature set while still maintaining speed
 - The goal was to let programmers use object-oriented techniques with the power and speed of C
 
-```C++
+```cpp
 /* Hello World */
 
 #include <iostream>  // New include style for builtins
@@ -64,5 +64,3 @@ int main() {
     return 0;
 }
 ```
-
-
