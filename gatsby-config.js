@@ -93,6 +93,12 @@ module.exports = {
       options: {
         plugins: [
           {
+            resolve:'gatsby-remark-mermaid',
+            options: {
+              theme: 'dark'
+            }
+          },
+          {
             resolve: 'gatsby-remark-katex',
             options: {
               strict: 'ignore'
