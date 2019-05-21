@@ -14,13 +14,17 @@ module.exports = {
       path: '/'
     },
     {
+      label: 'Teaching',
+      path: '/pages/teaching'
+    },
+    {
       label: 'Resume',
       path: '/pages/resume'
     },
     {
       label: 'Contact me',
       path: '/pages/contacts'
-    }
+    },
   ],
   author: {
     name: 'Tom Howard',
