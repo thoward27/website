@@ -1,6 +1,7 @@
 {% macro card(post) %}
 <article{% if post.url == url %} data-current="current item"{% endif %}>
     <time datetime="{{ post.date | machineDate }}">{{ post.date | readableDate }}</time>
+    <span class="category"><a href="{{ post.category | url }}">{{ post.category }}</a>{{ post.category }}</span>
     <h3>
         <a href="{{ post.url | url }}">
             {% if post.data.title %}
