@@ -1,0 +1,189 @@
+body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: auto 1fr;
+  grid-template-areas: "header main" "sidebar main" "sidebar footer";
+}
+header {
+  grid-area: header;
+}
+nav {
+  grid-area: sidebar;
+}
+main {
+  grid-area: main;
+}
+footer {
+  grid-area: footer;
+}
+@media screen and (max-width: 796px) {
+  body {
+    grid-template: "header" auto "sidebar" auto "main" 1fr "footer" auto;
+  }
+  nav > ul > li {
+    display: inline;
+    padding-right: .5em;
+  }
+}
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #292828;
+  height: 100vh;
+}
+header {
+  padding: 2em 2em 0 2em;
+}
+header > a > img {
+  height: 150px;
+}
+main {
+  max-width: 80em;
+  border-left: 1px solid #504e4e;
+  padding: 2em;
+}
+nav {
+  padding-left: 2em;
+}
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+nav li {
+  margin: 15px 0;
+}
+nav li a[data-current="current item"] {
+  border-bottom: 1px solid #f8efe6;
+}
+nav li a:hover {
+  border-bottom: 1px solid #53969f;
+}
+footer {
+  padding: 1em;
+  text-align: center;
+  border-left: 1px solid #504e4e;
+}
+button,
+.button {
+  padding: 1em;
+  border: 1px solid #f7882f;
+  background-color: #292828;
+  cursor: pointer;
+}
+button:hover,
+.button:hover {
+  background-color: #141414;
+}
+article {
+  margin: 0 0 2em 0;
+}
+article > h3 {
+  margin: .2em 0 .2em 0;
+}
+article > p {
+  margin-bottom: 0.5em;
+}
+article > ul {
+  padding-left: 0;
+  margin: 0;
+  list-style: none;
+}
+article > ul > li {
+  display: inline;
+}
+a[rel="tag"] {
+  color: #f7882f;
+  margin-right: .9em;
+  transition: 0.3s;
+}
+a[rel="tag"]:hover {
+  border-bottom: 1px solid #53969f;
+}
+* {
+  font-family: 'Lato', sans-serif;
+  color: #f8efe6;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Roboto', 'sans-serif';
+  font-weight: 600;
+}
+h1 {
+  font-size: 2.5rem;
+}
+h2 {
+  font-size: 2.0rem;
+}
+h3 {
+  font-size: 1.375rem;
+}
+h4 {
+  font-size: 1.2rem;
+  color: #dbc8aa;
+}
+h5 {
+  font-size: 1.0rem;
+  color: #dbc8aa;
+}
+h6 {
+  font-size: 0.8rem;
+  color: #dbc8aa;
+}
+p {
+  margin-bottom: 1.5em;
+  line-height: 1.4em;
+  display: block;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.2em;
+}
+li {
+  font-size: 1.1em;
+  line-height: 1.3em;
+}
+a {
+  color: #f8efe6;
+  text-decoration: none;
+  transition: 0.2s;
+}
+a:hover {
+  color: #53969f;
+}
+button,
+.button {
+  font-size: 1.1em;
+}
+article > time {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+form {
+  display: grid;
+  padding: 2em 0;
+}
+form label {
+  display: none;
+}
+form textarea,
+form input {
+  margin-bottom: 1em;
+  padding: .5em;
+  background-color: #141414;
+  border: 1px solid #504e4e;
+  font-size: 1rem;
+  font-family: 'Lato', sans-serif;
+  color: #f8efe6;
+}
+form textarea::placeholder,
+form input::placeholder {
+  color: #c2c1c1;
+}
+* {
+  box-sizing: border-box;
+}
+/* Header Logo (style as h2) */

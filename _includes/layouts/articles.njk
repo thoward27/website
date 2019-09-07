@@ -1,0 +1,18 @@
+---
+layout: layouts/base.njk
+section: home
+pagination:
+    data: collections.post
+    size: 6
+    alias: posts
+	reverse: true
+---
+{% from "components/posts.njk" import card %}
+
+{{ layoutContent | safe }}
+
+<section>
+	{% for post in posts | reverse %}
+		{{ card(post) }}
+	{% endfor %}
+</section>
