@@ -64,15 +64,30 @@ button,
 }
 
 article {
+    margin: 0 0 2em 0;
+
     &>h3 {
         margin: .2em 0 .2em 0;
+    }
+
+    &>p {
+        margin-bottom: 0.5em;
+    }
+
+    &>ul {
+        padding-left: 0;
+        margin: 0;
+        list-style: none;
+
+        &>li {
+            display: inline;
+        }
     }
 }
 
 a[rel="tag"] {
     color: @orange;
-    padding: .3em;
-    margin: .2em;
+    margin-right: .9em;
     transition: 0.3s;
 
     &:hover {

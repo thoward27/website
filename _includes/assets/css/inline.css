@@ -74,13 +74,26 @@ button:hover,
 .button:hover {
   background-color: #141414;
 }
+article {
+  margin: 0 0 2em 0;
+}
 article > h3 {
   margin: .2em 0 .2em 0;
 }
+article > p {
+  margin-bottom: 0.5em;
+}
+article > ul {
+  padding-left: 0;
+  margin: 0;
+  list-style: none;
+}
+article > ul > li {
+  display: inline;
+}
 a[rel="tag"] {
   color: #f7882f;
-  padding: .3em;
-  margin: .2em;
+  margin-right: .9em;
   transition: 0.3s;
 }
 a[rel="tag"]:hover {
