@@ -1,0 +1,25 @@
+//main: inline.less
+
+form {
+    display: grid;
+    padding: 2em 0;
+
+    label {
+        display: none;
+    }
+
+    textarea,
+    input {
+        margin-bottom: 1em;
+        padding: .5em;
+        background-color: @text-box;
+        border: 1px solid @border;
+        font-size: 1rem;
+        font-family: 'Lato', sans-serif;
+        color: @white;
+
+        &::placeholder {
+            color: @placeholder;
+        }
+    }
+}

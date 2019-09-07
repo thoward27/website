@@ -1,0 +1,45 @@
+<!doctype html>
+<html {% if section %} data-current="{{ section }}"{% endif %} lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>{{ title or renderData.title or metadata.title }} - Tom Howard</title>
+		
+		<script async src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    	
+		<link href="https://fonts.googleapis.com/css?family=Lato|Roboto:400,500,700&display=swap" rel="stylesheet">
+		
+		{% set css %}
+			{% include "assets/css/inline.css" %}
+		{% endset %}
+		<style>{{ css | cssmin | safe }}</style>
+		{% set js %}
+			{% include "assets/js/inline.js" %}
+		{% endset %}
+		<script>{{ js | jsmin | safe }}</script>
+	</head>
+	<body>
+		<header>
+			<h2><a href="{{ '/' | url }}">{{ metadata.title }}</a></h2>
+			<h5>Software Engineer,<br>Deep Learning Researcher</h5>
+		</header>
+		<nav>
+			<ul>
+				{%- for nav in collections.nav -%}
+				<li>
+					<a href="{{ nav.url | url }}"{% if nav.url == page.url %} data-current="current item"{% endif %}>{{ nav.data.title }}</a>
+				</li>
+				{%- endfor -%}
+			</ul>
+		</nav>
+		<main>
+			{{ layoutContent | safe }}
+		</main>
+
+		<footer>
+			<small>
+				Check out the <a href="{{ pkg.repository.url }}">Github repo</a>.
+			</small>
+		</footer>
+	</body>
+</html>

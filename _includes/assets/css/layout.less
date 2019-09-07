@@ -1,0 +1,76 @@
+//main: inline.less
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: @background;
+    height: 100vh;
+
+}
+
+header {
+    padding: 0 2em;
+}
+
+main {
+    max-width: 80em;
+    border-left: 1px solid @border;
+    padding: 2em;
+}
+
+nav {
+    padding-left: 2em;
+
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    li {
+        margin: 15px 0;
+
+        a {
+            &[data-current="current item"] {
+                border-bottom: 1px solid @white;
+            }
+
+            &:hover {
+                border-bottom: 1px solid @blue;
+            }
+        }
+    }
+}
+
+footer {
+    padding: 1em;
+    text-align: center;
+}
+
+button,
+.button {
+    padding: 1em;
+    border: 1px solid @orange;
+    background-color: @background;
+    cursor: pointer;
+
+    &:hover {
+        background-color: @text-box;
+    }
+}
+
+article {
+    &>h3 {
+        margin: .2em 0 .2em 0;
+    }
+}
+
+a[rel="tag"] {
+    color: @orange;
+    padding: .3em;
+    margin: .2em;
+    transition: 0.3s;
+
+    &:hover {
+        border-bottom: 1px solid @blue;
+    }
+}

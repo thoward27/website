@@ -1,0 +1,7 @@
+{% from "components/posts.njk" import card %}
+
+<section>
+	{% for post in postslist %}
+		{{ card(post) }}
+	{% endfor %}
+</section>
