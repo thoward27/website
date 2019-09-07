@@ -18,7 +18,11 @@ footer {
 }
 @media screen and (max-width: 796px) {
   body {
-    grid-template: "header" auto "sidebar" auto "main" auto "footer" auto;
+    grid-template: "header" auto "sidebar" auto "main" 1fr "footer" auto;
+  }
+  nav > ul > li {
+    display: inline;
+    padding-right: .5em;
   }
 }
 body {
@@ -28,11 +32,14 @@ body {
   height: 100vh;
 }
 header {
-  padding: 0 2em;
+  padding: 2em 2em 0 2em;
+}
+header > a > img {
+  height: 150px;
 }
 main {
   max-width: 80em;
-  border-left: 1px solid #5d5a5a;
+  border-left: 1px solid #504e4e;
   padding: 2em;
 }
 nav {
@@ -54,6 +61,7 @@ nav li a:hover {
 footer {
   padding: 1em;
   text-align: center;
+  border-left: 1px solid #504e4e;
 }
 button,
 .button {
@@ -153,7 +161,7 @@ form input {
   margin-bottom: 1em;
   padding: .5em;
   background-color: #141414;
-  border: 1px solid #5d5a5a;
+  border: 1px solid #504e4e;
   font-size: 1rem;
   font-family: 'Lato', sans-serif;
   color: #f8efe6;
