@@ -111,10 +111,10 @@ a[rel="tag"]:hover {
   padding-right: 1em;
 }
 .social > li > a {
-  filter: invert(80%);
+  filter: invert(86%) sepia(27%) saturate(134%) hue-rotate(330deg) brightness(108%) contrast(94%);
 }
 .social > li > a:hover {
-  filter: invert(54%) sepia(44%) saturate(397%) hue-rotate(139deg) brightness(91%) contrast(86%);
+  filter: invert(50%) sepia(56%) saturate(308%) hue-rotate(139deg) brightness(97%) contrast(88%);
 }
 .social > li > a > img {
   transition: 0.2s;
