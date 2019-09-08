@@ -1,11 +1,15 @@
 //main: inline.less
 
+* {
+    box-sizing: border-box;
+    transition: 0.2s;
+}
+
 body {
     padding: 0;
     margin: 0;
     background-color: @background;
-    height: 100vh;
-
+    min-height: 100vh;
 }
 
 header {
@@ -64,14 +68,14 @@ button,
 }
 
 article {
-    margin: 0 0 2em 0;
+    margin: 0 0 2.5em 0;
 
     &>h3 {
         margin: .2em 0 .2em 0;
     }
 
     &>p {
-        margin-bottom: 0.5em;
+        margin: 0.5em 0;
     }
 
     &>ul {
