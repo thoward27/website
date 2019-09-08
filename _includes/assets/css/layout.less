@@ -98,3 +98,30 @@ a[rel="tag"] {
         border-bottom: 1px solid @blue;
     }
 }
+
+.social {
+    margin-top: 3em;
+
+    &>li {
+        display: inline;
+        padding-right: 1em;
+
+        &>a {
+            filter: invert(80%);
+
+            &:hover {
+                filter: invert(54%) sepia(44%) saturate(397%) hue-rotate(139deg) brightness(91%) contrast(86%);
+            }
+
+            &>img {
+                transition: 0.2s;
+                height: 1.3em;
+                width: 1.3em;
+                margin-right: 0.2em;
+            }
+
+        }
+
+    }
+
+}
