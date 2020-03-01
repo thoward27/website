@@ -25,7 +25,23 @@ Formal training in algorithms and data structures provide a strong foundation fo
 
 ### Experience
 
-#### Research / Teaching Assistant, University of Rhode Island (January 2018 - Present)
+### Python Engineer, Zumper (December 2019 - Present)
+
+- Worked to drive the platform into the future
+- Engineered partner integrations, both with incoming and outgoing data
+- Refactored and simplified integrations with third-party tools
+- Scoped, architected, and implemented new features
+
+### Part-Time Teacher, University of Rhode Island (Summer 2019)
+
+- Taught Data Structures and Algorithms in C++
+- Covered Linear Structures, Trees (including Red-Black), Searching, Sorting, Hashing, and more.
+- Led a flipped classroom, focused on implementing complex concepts
+- Classwork developed through Github Classroom, with a strong focus on git
+- Managed Teaching Assistants to successfully deliver key assignments
+- Received 
+
+#### Research / Teaching Assistant, University of Rhode Island (January 2018 - December 2019)
 
 - Assisted in teaching classes such as: Data Structures and Algorithms and Object-Oriented Programming
 - Researched advanced topics in deep learning: Reinforcement Learning, GANs, CNNs, and more.
@@ -58,7 +74,7 @@ Formal training in algorithms and data structures provide a strong foundation fo
 #### MSc Computer Science, University of Rhode Island (September 2017 - Present)
 
 - Thesis track focused on Machine Learning and Neural Networks
-- Coursework in: C++, C, Python, Deep Learning, Machine Learning
+- Coursework in: C++, C, Python, Deep Learning, Machine Learning, Operating Systems
 
 #### Nanodegree: Data Analytics, Udacity (May 2017 - August 2017)
 
