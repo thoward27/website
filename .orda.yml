@@ -1,4 +1,4 @@
-integration: www.google.com
+integration: https://www.google.com
 
 services:
         website:  
