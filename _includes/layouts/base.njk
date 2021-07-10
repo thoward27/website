@@ -27,15 +27,17 @@
 		<meta name="msapplication-TileColor" content="#ffffff">
 		<meta name="msapplication-TileImage" content="/static/favicons/ms-icon-144x144.png">
 		<meta name="theme-color" content="#ffffff">
-		
+
 		{% set css %}
 			{% include "assets/css/inline.css" %}
 		{% endset %}
 		<style>{{ css | cssmin | safe }}</style>
+
+		<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">	
 		{% set js %}
 			{% include "assets/js/inline.js" %}
 		{% endset %}
-		<script>{{ js | jsmin | safe }}</script>
+		<script>{{ js | jsmin | safe }}</script> -->
 	</head>
 	<body>
 		<header>
