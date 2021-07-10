@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "clean-css": "^5.1.2",
+    "flickity": "^2.2.2",
     "html-minifier": "^4.0.0",
     "uglify-es": "^3.3.9"
   }
