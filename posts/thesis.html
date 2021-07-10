@@ -1,0 +1,1883 @@
+---
+title: Using a Digital Application to Refresh Knowledge of Abuse for Individuals with Intellectual/Developmental Disabilities
+summary: Thesis work, completed for a Masters in Computer Science at the University of Rhode Island
+date: 2020-12-26T00:00:00Z
+tags:
+  - post
+  - awareness and action
+  - thesis
+---
+<style type="text/css">
+    code {
+        white-space: pre-wrap;
+    }
+
+    span.smallcaps {
+        font-variant: small-caps;
+    }
+
+    span.underline {
+        text-decoration: underline;
+    }
+
+    div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+    }
+</style>
+<p>
+    This is an HTML version of my thesis, <a href="/static/thesis.pdf">a PDF can be found here</a>
+</p>
+
+<h2>Table of Contents</h2>
+
+<nav id="TOC">
+    <ol>
+        <li><a href="#ch:intro">Introduction</a>
+            <ol>
+                <li><a href="#sec:intro-problem">Problem Statement</a></li>
+                <li><a href="#sec:intro-purpose">Proposed Solution</a></li>
+                <li><a href="#sec:findings">Findings</a></li>
+            </ol>
+        </li>
+        <li><a href="#ch:related">Related Works</a>
+            <ol>
+                <li><a href="#sec:related-learning">Digital Learning for Individuals with I/DD</a></li>
+                <li><a href="#sec:related-learning-gamification">Gamification</a></li>
+                <li><a href="#sec:summary">Summary</a></li>
+            </ol>
+        </li>
+        <li><a href="#ch:codesign">Study I: Collaborative design for selection of important elements</a>
+            <ol>
+                <li><a href="#sec:codesign:generative">Generating Interactive Prototypes to Act as Concrete Probes</a>
+                    <ol>
+                        <li><a href="#subsec:methodology-requirements">Requirements Gathering</a></li>
+                        <li><a href="#subsec:methodology:prototypes">Developing the Prototypes</a></li>
+                    </ol>
+                </li>
+                <li><a href="#sec:methodology-codesign">Results from the collaborative-design session</a>
+                    <ol>
+                        <li><a href="#subsec:methodology-codesign-emotion">Emotional Reinforcement</a></li>
+                        <li><a href="#subsec:methodology-codesign-grounding">Grounding Activities</a></li>
+                        <li><a href="#subsec:methodology-codesign-video">Interactive Elements</a></li>
+                        <li><a href="#subsec:methodology-codesign-quiz">Quizzes</a></li>
+                        <li><a href="#subsec:methodology-codesign-skills">Skills Games</a></li>
+                    </ol>
+                </li>
+            </ol>
+        </li>
+        <li><a href="#ch:usability">Study II: Usability evaluations of high-fidelity prototypes</a>
+            <ol>
+                <li><a href="#sec:usability-study-methods">Usability Study Methods</a>
+                    <ol>
+                        <li><a href="#subsec:methodology-evaluations-setting">Setting</a></li>
+                        <li><a href="#subsec:methodology-evaluations-participants">Participants</a></li>
+                        <li><a href="#subsec:usability:materials">Materials</a></li>
+                        <li><a href="#subsec:methodology-evaluations-measurements">Measurement Instruments</a></li>
+                        <li><a href="#subsec:methodology-evaluations-procedure">Procedure</a></li>
+                        <li><a href="#subsec:methodology-evaluations-analysis">Data Analysis</a></li>
+                    </ol>
+                </li>
+                <li><a href="#sec:results">Results</a>
+                    <ol>
+                        <li><a href="#subsec:the-impact-of-interactive-content-on-engagement">The Impact of Interactive Content
+                                on Engagement</a></li>
+                        <li><a href="#subsec:the-importance-of-including-grounding-activities">The Importance of Including
+                                Grounding Activities</a></li>
+                        <li><a href="#subsec:using-the-application-for-reporting-abuse">Using the Application for Reporting
+                                Abuse</a></li>
+                        <li><a href="#subsec:the-effectiveness-of-using-an-application-to-refresh-knowledge-of-abuse">The
+                                Effectiveness of Using an Application to Refresh Knowledge of Abuse</a></li>
+                    </ol>
+                </li>
+            </ol>
+        </li>
+        <li><a href="#ch:discussion">Discussion</a>
+            <ol>
+                <li><a href="#sec:recommendations-for-future-applications">Recommendations for Future Applications</a></li>
+                <li><a href="#sec:solutions-for-reporting-abuse-for-individuals-with-idd">Solutions for Reporting Abuse for
+                        Individuals with I/DD</a></li>
+                <li><a href="#sec:limitations">Limitations</a>
+                    <ol>
+                        <li><a href="#subsec:accessibility-was-not-a-focus-of-research">Accessibility was not a Focus of
+                                Research</a></li>
+                        <li><a href="#subsec:sample-population-biases">Sample Population Biases</a></li>
+                        <li><a href="#subsec:limitations-in-user-device-control">Limitations in User Device Control</a></li>
+                    </ol>
+                </li>
+            </ol>
+        </li>
+        <li><a href="#ch:conclusion">Conclusions and Future Work</a>
+            <ol>
+                <li><a href="#sec:recommendations-for-future-research">Recommendations for Future Research</a></li>
+            </ol>
+        </li>
+        <li><a href="#supplemental-materials">Supplemental Materials</a>
+            <ol>
+                <li><a href="#thematic-analysis">Thematic Analysis</a>
+                    <ol>
+                        <li><a href="#positive-reaction">Positive Reaction</a></li>
+                        <li><a href="#negative-reaction">Negative Reaction</a></li>
+                        <li><a href="#intervention-required">Intervention Required</a></li>
+                        <li><a href="#incorrect-responses">Incorrect Responses</a></li>
+                        <li><a href="#awareness-and-action-references">Awareness and Action References</a></li>
+                        <li><a href="#ownership">Ownership</a></li>
+                        <li><a href="#communication">Communication</a></li>
+                    </ol>
+                </li>
+                <li><a href="#collaborative-design">Collaborative Design</a></li>
+                <li><a href="#sec:related-evaluations">User Evaluations</a></li>
+            </ol>
+        </li>
+    </ol>
+</nav>
+<h2 id="abstract">Abstract</h2>
+<p>Individuals with Intellectual/Developmental Disabilities (I/DD) are abused more frequently than individuals without
+    disabilities. One potential reason for this discrepancy, is the low rate at which instances of abuse are reported by
+    those with I/DD. It has been shown that learning about abuse and how to report it, can cause an individual with I/DD
+    to feel more confident about reporting any future instances of abuse. Within this work a digitized version of the
+    current in-person abuse prevention training program, called the Awareness and Action (A&amp;A) training, is
+    developed and evaluated. The hope is that providing an application capable of refreshing an individual’s knowledge
+    of abuse could help individuals with I/DD maintain their confidence in reporting abuse over the long term.</p>
+<p>The resulting application is designed with the help of several individuals with I/DD through a collaborative design
+    session. Engaging members of the community provided a variety of valuable insights that impacted the usability
+    evaluations.</p>
+<p>Usability evaluations were conducted remotely with six participants with I/DD. Of these six participants, five had
+    been or were currently A&amp;A trainers.</p>
+<p>Through the use of collaborative design and usability evaluations, this work demonstrates that an application may
+    indeed be an effective way of reinforcing knowledge of abuse. All participants in the usability evaluation indicated
+    they would download and use the application; and that they would recommend others do the same.</p>
+<p>First and foremost, I would like to express my sincere gratitude to Dr. Krishna Venkatasubramanian. Without his
+    assistance and dedicated involvement in every step this work would not have been possible. I would like to thank you
+    from the bottom of my heart for your support and understanding over this past year and a half.</p>
+<p>I would also like to thank my committee members, including Dr. Noah Daniels and Dr. William Kinnersely. Dr. Noah
+    Daniels, who taught one of my first classes in C++ and who pushed my knowledge of algorithms in Python. Dr. William
+    Kinnersely, who showed me that math can, in fact, be absolutely fascinating.</p>
+<p>To Emiton Alves and Mary Wishart, your contributions to the codebase were crucial to completing the project, thank
+    you for your time and effort in making this work possible. I am also deeply indebted to Mass Advocates Standing
+    Strong, all of the participants who made this work possible, and the coordinators who were happy to organize our
+    meetings. To Najib Ishaq, my friend and colleague, thank you for providing a sounding board for my wild ideas along
+    the way, you were an invaluable source of reason and honesty.</p>
+<p>This thesis would not have been possible without the support of my friends and family. Thank you to my parents for
+    always being there in times of need, always encouraging me to carry on, and always listening to my ramblings. Thank
+    you to my grandparents for always believing in me, even when I may not have entirely believed in myself. And thank
+    you to my girlfriend Taylor for tolerating countless late nights of writing and my awful habit of reading aloud
+    whilst editing (even though we share an office).</p>
+<h2 id="ch:intro">Introduction</h2>
+<p>In the US, 9/10 individuals with Intellectual/Developmental Disabilities (IDD) will experience at least one instance
+    of abuse<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> in their lifetime; of those abused
+    individuals, half will be abused ten or more times <span class="citation"
+        data-cites="valenti-hein_sexual_1995">(Valenti-Hein and Schwartz 1995)</span>. Moreover, individuals with I/DD
+    are generally at a higher risk of violence, such as assault or other violent crimes, than individuals without
+    disabilities <span class="citation" data-cites="hughes-2012">(Hughes et al. 2012)</span>. Yet, incidents of abuse
+    against individuals with I/DD remains severely under reported. For example, <strong>only 3% of sexual abuse cases
+        involving persons with I/DD are <em>ever</em> reported</strong><span class="citation"
+        data-cites="valenti-hein_sexual_1995">(Valenti-Hein and Schwartz 1995)</span>.</p>
+<p>Researchers have found that individuals with I/DD are most often abused by those they already know, such as a
+    caregiver or a family member <span class="citation"
+        data-cites="venkatasubramanian-exploring-2021">(Venkatasubramanian et al. 2021)</span>. Abused individuals may
+    have nearly <em>every</em> part of their life monitored by the person abusing them. Perpetrators of abuse use their
+    connection to, or control of, the abused to manipulate them into remaining quiet; whilst larger societal attitudes
+    tend to discount the voices and experiences of people with I/DD. It is this manipulation and the general perception
+    that they will not be taken seriously that pose the largest barriers for getting individuals with I/DD to report
+    abuse <span class="citation" data-cites="venkatasubramanian-exploring-2021">(Venkatasubramanian et al. 2021)</span>.
+</p>
+<h3 id="sec:intro-problem">Problem Statement</h3>
+<p>Empowering individuals with I/DD to report incidents of abuse must be a top priority for society. It has been found
+    that undergoing abuse prevention training can improve the understanding, recognition, and reporting of abusive
+    behavior <span class="citation" data-cites="venkatasubramanian-exploring-2021">(Venkatasubramanian et al.
+        2021)</span>. Today, the <em>Awareness and Action</em> (A&amp;A) program provides such trainings in
+    Massachusetts for anyone who is able to attend. These three-hour training events take participants through multiple
+    types of abuse, warning signs, and how to properly report instances of abuse.</p>
+<p>The importance of the material contained in the A&amp;A training cannot be understated; yet physical trainings do
+    suffer from some distinct drawbacks. Logistically, individuals with I/DD who wish to attend a training must
+    coordinate travel to the physical location in order to participate. Moreover, trainers themselves can only host so
+    many sessions a year, potentially leaving certain populations without access to trainings for extended periods of
+    time. Unfortunately, if these types of logistical barriers are not overcome, it can be hard to maintain an
+    understanding of the material, as frequency has been shown to be crucial for individuals with I/DD to maintain
+    knowledge <span class="citation" data-cites="ayres_computer-_2010 buehler_accessibility_2016">(Ayres and Cihak 2010;
+        Buehler et al. 2016)</span>.</p>
+<p>Even when users have unfettered access to as many trainings as they need, motivating them to attend may be difficult.
+    Motivating an individual to complete any action can be a challenge, let alone when a user finds a task to be
+    boring <span class="citation" data-cites="macdonald_gamification_2019">(Macdonald and Brewster 2019)</span>. Some
+    individuals may view the idea of completing additional refresher courses on abuse as a boring prospect, since there
+    will be no new information presented. One can assume that compounding this boredom with the logistical challenges
+    mentioned above may lead to difficulties when it comes to motivating individuals with I/DD to complete enough
+    trainings to maintain their knowledge about abuse and how to report it.</p>
+<p>Not only can attending trainings be challenging due to logistical and motivational issues, but emotional issues may
+    emerge as well. Unfortunately, individuals with I/DD who attend the training may have experienced the types of abuse
+    being presented, these images may trigger emotional responses in the participants. During the in-person training,
+    when individuals become emotionally triggered by the content of the training, staff members are there to step in to
+    alleviate the mental distress. One must not forget that the individuals attending the training may have been abused
+    themselves or may <em>still be involved in an abusive situation</em>.</p>
+<h3 id="sec:intro-purpose">Proposed Solution</h3>
+<p>One potential solution to the aforementioned logistical problems of attending multiple training sessions could be to
+    digitize the in-person A&amp;A training, thus making it accessible anytime and anywhere. Special care would have to
+    be taken while creating the application to ensure that users are motivated to use it regularly, whilst
+    simultaneously preventing users from becoming triggered by any of the materials. This work intends, through the use
+    of collaborative design (co-design) and usability evaluations to determine if such an application <em>could</em> be
+    developed. If successful, this application could enable individuals with I/DD to better protect themselves and those
+    around them.</p>
+<p>Motivating a user to return to an educational application regularly can be challenging. Applications are always
+    seeking new ways to generate either intrinsic or extrinsic motivation to increase user retention. Since external
+    forms of competition have been shown to cause anxiety that can reduce learning performance <span class="citation"
+        data-cites="shaban_learning_2019">(Shaban and Pearson 2019)</span>, using intrinsic motivation to encourage
+    persons with I/DD to complete refresher trainings regularly may be preferred to extrinsic motivation. One promising
+    way to foster intrinsic motivation in educational contexts is to apply elements from <em>gamification</em>, such as
+    awarding points or providing a narrative that users progress through.</p>
+<p>Whilst focusing on developing an engaging application that will motivate users to keep coming back is important, one
+    cannot forget that the material in the A&amp;A training may be challenging for individuals to work through. There
+    will be users who have been abused, users who have witnessed abuse, and users who may have lost friends or family to
+    abuse. Throughout the in-person training, instructors ask participants to join them in a number of calming breathing
+    exercises and grounding activities, such as a sensory exercise in which participants are asked to describe small
+    objects using all of their senses. Likewise, a digital version of the training could also provide similar activities
+    to prevent users from experiencing undue emotional distress, along with providing simple mechanisms to connect with
+    emergency contacts.</p>
+<p>This work explores what types of grounding activities may be well-suited for consumption in a digital format in both
+    the co-design and usability studies. Within the later study, a digital xylophone is used as the grounding activity,
+    wherein participants may play musical notes until they feel calm enough to continue with the lesson. Extreme caution
+    must be taken with this portion of the application, as emotionally triggering an individual who may not have anyone
+    in their proximity can be a traumatic experience. If an individual is using a digital application on their own, in
+    the comfort of their home, and they become triggered, the potential outcomes can be quite negative.</p>
+<p>Creating an effective application, one capable of refreshing all of the knowledge presented during the A&amp;A
+    training session, will require trial and error. Through the use of co-design and usability evaluations, this work
+    will explore a wide variety of formats to present the learning materials in. In the end, the hope is that an
+    effective format to convey the A&amp;A training can be found.</p>
+<p>To assess the viability of a digital version of the A&amp;A training program, several key research questions were
+    identified:</p>
+<ol>
+    <li>
+        <p>What aspects of interactive content inspired by ideas of gamification work for the refresher application?</p>
+    </li>
+    <li>
+        <p>How are grounding activities built into the application received by the audience?</p>
+    </li>
+    <li>
+        <p>Can an application effectively refresh an individual’s knowledge from the Awareness and Action training?</p>
+    </li>
+</ol>
+<h3 id="sec:findings">Findings</h3>
+<p>Overall, results from this work are extremely promising. Participants stated that they would download and use the
+    final prototypes, that they would encourage others to do the same, and that the application was effective overall.
+    Moreover, results from both included studies help in forming a set of recommendations for future applications that
+    may prove to be effective at a large scale in refreshing an individual knowledge about abuse and how to report it.
+    Interestingly, participants also uncovered novel use cases for the final prototypes that were not intended, a result
+    expanded upon in Chapter <a href="#ch:discussion" data-reference-type="ref" data-reference="ch:discussion">5</a>.
+</p>
+<h2 id="ch:related">Related Works</h2>
+<p>Developing an application capable of refreshing an individual’s knowledge of abuse and how to report it is not a
+    trivial task. Compressing the existing abuse education program entitled Awareness and Action (A&amp;A) training into
+    a digital format poses a number of unique challenges. One must take great care in not triggering any user of the
+    final application, as the subject matter can be quite challenging, especially for those who have been abused. Then,
+    one must ensure the application is engaging, that it provides enough intrinsic motivation to encourage users to
+    continue using the application to maintain their knowledge in the long-term. Finally, one must provide materials and
+    interfaces that can effectively be used to maintain the understandings gained at the in-person training session
+    autonomously, so that individuals can practice as much as they see fit, without needing interventions from their
+    friends/family/caregivers.</p>
+<p>Literature included in this section addresses two main areas of research. The first section investigates previous
+    efforts in digital learning for individuals with I/DD, while the second focuses on the application of various
+    elements from gamification to educational contexts.</p>
+<h3 id="sec:related-learning">Digital Learning for Individuals with I/DD</h3>
+<p>The introduction Massive Open Online Courses (MOOCs) have undoubtedly made learning more accessible than at any time
+    in the past, however, are these types of courses <strong>accessible</strong> to individuals with I/DD? This is the
+    question Guimarães and Mattos set out to answer in their work “Exploring the Use of Massive Open Online Courses for
+    Teaching Students with Intellectual Disabilities" <span class="citation"
+        data-cites="laiola_guimaraes_exploring_2015">(Laiola Guimarães and Britto Mattos 2015)</span>. In their study,
+    the researchers worked in collaboration with a Brazilian Non-Governmental Organization for people with I/DD to
+    provide a MOOC to complement vocational training designed to help the students obtain and maintain paid employment.
+    To accomplish this, the program focuses on teaching early math operations and reading time on analog clocks. Five
+    people from the program participated in this qualitative study, one instructor and four students with I/DD.</p>
+<p>Before the technological intervention was introduced, each student had participated in roughly sixteen hours of
+    in-person training with the same instructor. For the study, all students were brought to the same classroom they had
+    completed their previous training sessions in, each was given a tablet, the instructor then provided a brief
+    introduction to the devices and how to use them. A camera was used to record the entirety of the session. Once all
+    participants were familiar with the devices, the instructor provided a fifteen-minute review of the topics the
+    students were going to be covering during the session using the concrete-pictorial-abstract approach with physical
+    materials, stating that the initial development of a concrete understanding better enables students with I/DD.
+    Finally, the instructor walked the group of students through opening the MOOC application, Khan Academy in this
+    case, and starting the required lessons.</p>
+<p>During their time with the application the students were allowed to ask questions. After completing the lessons each
+    student participated in an individual interview with two researchers, which lasted for 5-15 minutes. Researchers
+    then analyzed the recordings of the session and the interviews to develop their results.</p>
+<p>Overall, the researchers conclude that the participants in the study considered the experience to be a
+    <strong>positive</strong> one. Their key observations were that tablets <strong>did not</strong> represent a barrier
+    for the students, the instructor should be able to create their own lessons, students became dependent on hints
+    quite easily, <strong>positive feedback was a good motivator</strong>, and that classroom coordination is a
+    challenge when using self-paced learning. To mitigate the negative observations the researchers uncovered, they
+    suggest allowing instructors to design courses specific to their students, that all support should be provided in
+    such a way that <strong>encourages autonomy</strong>, and that the introduction of self-paced learning into a
+    classroom be studied further.
+</p>
+<p>Although Guimarães and Mattos introduce the students to Khan Academy and discuss the need to develop autonomy within
+    the students, they stop short of examining whether or not students would consider using Khan Academy on their own to
+    continue their learning outside of the classroom. If the intention of MOOCs is to allow an individual to learn
+    <em>anytime</em> and <em>anywhere</em>, the researchers should have asked if the students if they would be
+    comfortable using Khan Academy on their own. Moreover, the application of the research done for this work to the
+    current study is also limited by the content in question. Teaching basic skills is not emotionally equivalent to
+    teaching individuals about a potentially triggering subject like abuse.
+</p>
+<p>Identifying barriers for individuals with I/DD who want to <strong>learn autonomously</strong> is of the utmost
+    importance, especially as technology continues to entrench itself into education. Buehler et. al identify
+    problematic technical areas for persons with I/DD through the use of emic ethnography in their work “Accessibility
+    Barriers to Online Education for Young Adults with Intellectual Disabilities" <span class="citation"
+        data-cites="buehler_accessibility_2016">(Buehler et al. 2016)</span>. After years of observing individuals with
+    I/DD interact with educational systems, the researchers consolidated their observations around the following
+    categories: information retrieval, navigation and information architecture, file management, and password
+    management. Buehler et. al explore how these problematic areas effect how individuals with I/DD perform a variety of
+    technological tasks relating to education and propose mitigation strategies which may help creators make more
+    inclusive educational applications.</p>
+<p>The researchers involved with this study collected their findings over <em>several years</em> helping administer an
+    inclusive post-secondary certificate program designed to teach individuals with I/DD the necessary skills to promote
+    independent living and employment. Specific accounts included in the work were collected over a semester with twelve
+    students, six of which were persons with I/DD, the others were undergraduates. Each researcher in the study
+    maintained a detailed set of field notes, identifying recurring issues and obstacles faced by the students with
+    I/DD. Of particular interest to the current study is the recommendations laid out by the researchers within their
+    work.</p>
+<p>Recommendations from Buehler et. al include education and training for both students with I/DD and developers, using
+    metaphors/visual cues/consistency in design, and including personalized predictions. Educating both students with
+    I/DD and developers is a daunting task. Researchers recommend that students with I/DD receive specialized training
+    on technical skills, something which is not always achievable, and frequent practice, which may be somewhat
+    dependent on first having the skills. Additionally, they recommend that developers provide how-to videos to guide
+    users through the various interfaces and functions of an application, while also suggesting that developers should
+    be knowledgeable on guidelines for accessible design.</p>
+<p><em>Consistency in design</em> may be able to subvert some of the need for individuals with I/DD to receive
+    specialized training, as consistent iconography could allow easier knowledge transfer between applications.
+    Likewise, personalized predictions could help surface key information, preventing users from needing to <em>dig</em>
+    for functionality. Moreover, Buehler et. al recommend that future research and development focus on improving
+    visibility of interfaces, detecting and reducing frustrations, and adhering to participatory design practices.</p>
+<p>Unfortunately, the researchers in this study <strong>fail to consider more than just the technical
+        limitations</strong> users may face in using online educational systems. Emotionally triggering material may
+    pose real barriers to individuals with I/DD learning about sensitive subject matters, and issue entirely forgone by
+    this work. <em>If a user becomes emotionally triggered, would that impact learning?</em> What barriers might exist
+    when only teaching sensitive content, such as abuse?</p>
+<h3 id="sec:related-learning-gamification">Gamification</h3>
+<table>
+    <caption>The taxonomy of game elements considered for this work.<span label="tbl:taxonomy"></span></caption>
+    <thead>
+        <tr class="header">
+            <th style="text-align: left;">Concept</th>
+            <th style="text-align: left;">Description</th>
+            <th style="text-align: left;">Affected Behavior</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="odd">
+            <td style="text-align: left;">Acknowledgement</td>
+            <td style="text-align: left;">Feedback that praises a players’ actions (badges, medals, etc.)</td>
+            <td style="text-align: left;">Engagement</td>
+        </tr>
+        <tr class="even">
+            <td style="text-align: left;">Competition</td>
+            <td style="text-align: left;">Player v Player, scoreboards, healthy conflict</td>
+            <td style="text-align: left;">Engagement / Motivation</td>
+        </tr>
+        <tr class="odd">
+            <td style="text-align: left;">Cooperation</td>
+            <td style="text-align: left;">Teamwork or co-op missions</td>
+            <td style="text-align: left;">Motivation</td>
+        </tr>
+        <tr class="even">
+            <td style="text-align: left;">Imposed Choice</td>
+            <td style="text-align: left;">Decisions the player is obligated to make for the game to advance</td>
+            <td style="text-align: left;">Engagement / Motivation</td>
+        </tr>
+        <tr class="odd">
+            <td style="text-align: left;">Level</td>
+            <td style="text-align: left;">Hierarchical layers present in a game with allow a player to obtain new
+                advantages</td>
+            <td style="text-align: left;">Engagement / Motivation</td>
+        </tr>
+        <tr class="even">
+            <td style="text-align: left;">Novelty</td>
+            <td style="text-align: left;">New or updated information is presented</td>
+            <td style="text-align: left;">Engagement / Motivation</td>
+        </tr>
+        <tr class="odd">
+            <td style="text-align: left;">Objectives</td>
+            <td style="text-align: left;">Guide the players actions, short or long term</td>
+            <td style="text-align: left;">Engagement / Motivation</td>
+        </tr>
+        <tr class="even">
+            <td style="text-align: left;">Point</td>
+            <td style="text-align: left;">Measurement of performance</td>
+            <td style="text-align: left;">Engagement</td>
+        </tr>
+        <tr class="odd">
+            <td style="text-align: left;">Progression</td>
+            <td style="text-align: left;">Allows players to locate themselves within a game</td>
+            <td style="text-align: left;">Engagement</td>
+        </tr>
+        <tr class="even">
+            <td style="text-align: left;">Sensation</td>
+            <td style="text-align: left;">Use of senses to create new experiences</td>
+            <td style="text-align: left;">Engagement</td>
+        </tr>
+        <tr class="odd">
+            <td style="text-align: left;">Social Pressure</td>
+            <td style="text-align: left;">Pressure through interactions with other players (real or NPC)</td>
+            <td style="text-align: left;">Engagement / Motivation</td>
+        </tr>
+        <tr class="even">
+            <td style="text-align: left;">Stats</td>
+            <td style="text-align: left;">Visible information related to the outcome of the game</td>
+            <td style="text-align: left;">Engagement</td>
+        </tr>
+        <tr class="odd">
+            <td style="text-align: left;">Time Pressure</td>
+            <td style="text-align: left;">Pressure through time within the game (countdown)</td>
+            <td style="text-align: left;">Engagement / Motivation</td>
+        </tr>
+    </tbody>
+</table>
+<p>The Oxford dictionary defines gamification as “<em>the application of typical elements of game playing (e.g., point
+        scoring, competition with others, rules of play) to other areas of activity, typically as an online marketing
+        technique to encourage engagement with a product or service)</em>". Within this work, elements of game playing
+    are defined based on “A Taxonomy of Game Elements for Gamification in Educational Contexts" by A. M. Toda et
+    al. <span class="citation" data-cites="toda_taxonomy_2019">(Toda et al. 2019)</span>. A full table of game elements
+    considered for this study are described in Table <a href="#tbl:taxonomy" data-reference-type="ref"
+        data-reference="tbl:taxonomy">[tbl:taxonomy]</a>. Recently, gamification has been applied to educational
+    context, yielding a wealth of information on building <strong>intrinsic</strong> motivation within users to learn.
+</p>
+<p>Basic skills, such as counting money or recognizing numbers, are often taken for granted in able-bodied individuals,
+    yet for those with I/DD, <em>mastery of these skills can be challenging to attain</em>. Unfortunately, lacking these
+    skills can leave individuals with I/DD more dependent on others to carry out their daily activities.
+    Morales-Villaverde et al. present the development and evaluation of a collection of games designed to allow users to
+    practice basic skills in their work “Online Learning System to Help People with Developmental Disabilities Reinforce
+    Basic Skills" <span class="citation" data-cites="morales-villaverde_online_2016">(Morales-Villaverde et al.
+        2016)</span>. Working with Imagine! and Hope Services, two organizations dedicated to providing care for
+    individuals with I/DD, researchers iteratively developed and evaluated seven activities designed to help users
+    recognize and work with numbers, colors, shapes, letters, and U.S currency.</p>
+<p>Focus groups with an undisclosed number of participants were used to generate the initial requirements for the
+    application. Requirements included the <strong>use of acknowledgement via positive reinforcers</strong> when a task
+    was completed, clear objectives at the beginning of each activity, keeping the user informed of their progression
+    throughout the application, an invisible time pressure via a ninety-second countdown which would move the user
+    forward if they had not interacted with the app, the use of <em>simple</em> elements, and the <em>avoidance of
+        unnecessary content</em> on every screen. Once the entire set of requirements had been defined, prototypes were
+    created, and preliminary evaluations conducted. Heuristic evaluations were completed using Nielsen’s 10 Usability
+    Heuristics, then a small cohort of individuals with I/DD along with their caregivers or guardians provided initial
+    feedback on the application. These preliminary evaluations yielded a number of small bugs to fix and enhancements to
+    make. Performance issues, such as timings, transitions, and user input issues were addressed; while enhancements
+    like enlarging the buttons were developed.</p>
+<p>Finally, a more comprehensive evaluation was conducted with ten clients of Hope Services. All participants were
+    between the ages of 23 and 36 (mean = 28.4), there were four males and six females, all of which had I/DD.
+    Participants were asked to try each activity on three different sessions over the course of two weeks, concluding
+    each session with a short survey to assess their feelings towards the activity. Along with the survey, videos of all
+    sessions were recorded and analyzed by researchers to look for positive/negative reactions, whether or not users
+    needed assistance, and moments which required multiple presses to make a selection. Data from the coded videos and
+    conducted surveys were then combined and analyzed, yielding the following results.</p>
+<p>On average, <em>91.4% of users’ reactions were positive</em> during the final evaluation. Averaging across all
+    sessions and activities, 8.7/10 participants rated the activity they had just completed as fun, 9/10 rated it as
+    helpful, 9/10 reported liking the activity, and 9/10 indicated they would use the activity again. Overall, the
+    results of this study were <strong>very positive</strong>, though some users did require assistance from researchers
+    on multiple occasions (52 times across the entire evaluation process). Several conclusions can be drawn from these
+    results. First, activities like the ones used here can be well received by individuals with I/DD. Second,
+    individuals with I/DD <em>want</em> to use applications like the one proposed by Morales-Villaverde et al. And
+    finally, completing activities like the ones found in this study <em>may</em> be helpful to individuals with I/DD.
+</p>
+<p>While the results of this study are quite promising, there are inherent limitations to the work. Even though users
+    responded favorably to the application both in their surveys and in their reactions, longitudinal research is
+    necessary to know if these types of activities are truly effective ways to learn these basic skills for individuals
+    with I/DD. Additionally, the skills covered by this work are concrete in nature, though this was the purpose of the
+    study, it limits the direct application of the techniques presented here to more abstract concepts.</p>
+<p>Studies like the aforementioned work by Morales-Villaverde et al. mention their requirements when designing
+    applications for individuals with I/DD, yet they stop short of presenting frameworks for future efforts to build on.
+    Shaban and Pearson aim to address this lack of a formal framework in their article “A Learning Design Framework to
+    Support Children with Learning Disabilities Incorporating Gamification Techniques" <span class="citation"
+        data-cites="shaban_learning_2019">(Shaban and Pearson 2019)</span>, where they lay out both what to do and what
+    to <em>avoid</em> when applying gamification techniques to educational contexts. Specifically, this work connects
+    existing concepts from Human Computer Interaction (HCI) and cognitive load theories to suggest practices that bear
+    in mind the <em>potential</em> limitations in working memory capacity that can be found in persons with I/DD. By
+    drawing these conclusions, the authors offer a blueprint for applications that may better serve end-users with I/DD.
+</p>
+<p>To construct their framework Shaban and Pearson conducted a survey and distillation of previous academic works in
+    Cognitive Load Theory, multimedia learning design, Human Computer Interaction concepts, impacts of I/DD on learning,
+    and the <em>correlation between anxiety and lower academic performance</em>. Overall, their framework consists of
+    four major components: analysis, design, development, and evaluation. Analysis involves understanding the end-users,
+    their expectations, their needs, and their prior experiences. Shaban and Pearson offer many helpful guidelines for
+    the design phase, all of which they organize into the following distinct principles: place the user in control,
+    provide feedback, motivate the user to accomplish the task successfully, offer content in multiple modalities, guide
+    users through activities, segment content, signal what is important, provide coherence through the entire
+    application. Each principle, in turn, contains a number of guidelines to adhere to.</p>
+<p>To place the user in control of their experience, Shaban and Pearson recommend providing <em>simple</em> and
+    <em>intuitive</em> navigation, allowing the user to determine when, and for how long, they will use the learning
+    tool, bolstering their sense of autonomy. Feedback should be provided throughout the experience in a positive and
+    affirmative tone, even when incorrect answers have been supplied. Authors propose using a helper/guider in order to
+    foster a sense of motivation to complete each task successfully, this helper/guider is also recommended for use when
+    guiding users through activities.
+</p>
+<p>Due to the wide variety of disabilities that can be found in the community of individuals with I/DD, any content in
+    the application should provide <strong>spoken and visual activities, rather than just written ones</strong>.
+    Segmenting content requires presenting activities in discrete units with clear objectives and rewards. Signaling
+    what is important involves highlighting the most important elements and using cues sparingly during activities,
+    minimizing the cognitive load from unnecessary elements. Coherence dictates that all activities in the application
+    should work towards the overall goals and that the application provide a concise report on the user’s achievement at
+    the end of each activity.</p>
+<p>Along with the full set of principles and guidelines to adhere to, Shaban and Pearson also make it a point that
+    future developers <strong>avoid competition</strong>, which may cause an <em>unnecessary</em> amount of anxiety and
+    thus <em>decrease</em> intrinsic motivation. Furthermore, they stress the importance of simplicity in design, as
+    <em>any element on screen places a burden on working memory</em>, which may be limited in individuals with I/DD -
+    everything should serve a purpose. After developing an application using these principles and guidelines, Shaban and
+    Pearson recommend evaluation via usability, user experience, and cognitive load tests. The final application should
+    be easy to use, functional, and enjoyable for the end-users.
+</p>
+<p>While these principles and their guidelines are thorough and represent a positive step towards designing successful
+    applications for individuals with I/DD, there are certain elements which demand further investigation. Although the
+    authors point out the potential shortcomings in the use of competition, they still recommend consideration of points
+    as rewards for completing activities, one must question whether or not the use of points at all is conducive to a
+    competition-free environment; points provide an instant mechanism for comparison to others, for boasting, and for
+    being made to feel inferior. Furthermore, the authors made no effort to empirically test this framework, nor do they
+    consider the application of this framework on the larger population of all individuals with I/DD, who all share in
+    the same potential limitations in working memory capacity. Finally, their evaluation includes various different
+    usability and cognitive load tests, yet they make no mention of using co-design to help foster the creation of an
+    app designed for the end-user by the end-user.</p>
+<p>Gamification is a <strong>powerful</strong> technique, capable of <em>drastically</em> impacting human behavior.
+    While there are a myriad of elements to consider when designing an educational system, there are some which appear
+    to be more suited to the task than others. Generally, elements should be avoided if they require a large cognitive
+    load, are distracting, or if they induce anxiety. Researchers should be encouraged to use simple mechanisms,
+    especially acknowledgement in the form of binary rewards, to help motivate students.</p>
+<h3 id="sec:summary">Summary</h3>
+<p>Educating individuals with I/DD on sensitive topics using digital learning tools presents a number of challenges.
+    Potential technical and emotional barriers must be accounted for. Applications must be accessible, intuitive, and
+    they must motivate users to come back to reinforce what they have learned.</p>
+<p>Researchers have gone to great lengths to detail potential technical limitations that can impact accessibility.
+    Preceding works have demonstrated that existing systems, ones designed to teach benign materials, are reviewed
+    favorably by individuals with I/DD; and, that gamification may be an extremely effective tool to drive positive user
+    experiences. Yet, it remains unknown whether emotionally triggering materials can be taught using similar
+    mechanisms.</p>
+<h2 id="ch:codesign">Study I: Collaborative design for selection of important elements</h2>
+<p>This qualitative study explored what gamification elements, <em>if any</em>, should be included in an application
+    designed to reinforce materials learned at the Awareness and Action (A&amp;A) training program. Selection of key
+    elements for testing began with a survey of preceding efforts in educating persons with Intellectual/Developmental
+    Disabilities (I/DD) and concluded with a collaborative design (co-design) session to evaluate a set of
+    medium-fidelity prototypes. In order to create the necessary prototypes to complete this work,
+    <strong>personas</strong> <span class="citation" data-cites="cooper-1999">(Cooper 1999)</span> were generated to
+    embody <em>potential</em> end-users of the application. Multiple <strong>scenarios</strong> <span class="citation"
+        data-cites="sharp-2019">(Sharp 2019)</span> were then created around each of the individual personas, acting as
+    <em>narratives</em> which were then distilled into discrete <strong>use-cases</strong> <span class="citation"
+        data-cites="sharp-2019">(Sharp 2019)</span>. Finally, these use-cases were used to generate a formal set of
+    <strong>Volere atomic requirements</strong> <span class="citation" data-cites="sharp-2019">(Sharp 2019)</span>.
+</p>
+<p>After constructing a set of requirements, an initial set of low-fidelity prototypes were created using Adobe
+    InVision, a drag-and-drop prototyping tool. Low-fidelity prototypes were iterated on several times within the
+    research group; work at this stage in the project revolved around getting the prototype to more closely align with
+    the stated formal requirements. Previous works in co-design, particularly those works including individuals with
+    I/DD, have shown that having functional prototypes, also known as <em>concrete probes</em>, can facilitate more
+    productive sessions <span class="citation" data-cites="brereton_design_2015">(Brereton et al. 2015)</span>.
+    Unfortunately, Adobe InVision lacked several crucial features at the time of this study that prevented the
+    low-fidelity prototypes from being used as concrete probes. Once the low-fidelity prototypes had gained a consensus
+    amongst the researchers behind this work, they were re-created as medium-fidelity prototypes with HTML/JavaScript,
+    providing the necessary functionality to act as concrete probes during the co-design session.</p>
+<p>The co-design session was then held, using the medium-fidelity prototypes to demonstrate the functionality of each
+    prototype. Feedback from this session was collected and analyzed to guide the effort of creating the high-fidelity
+    prototypes used in the following study. Over the next several sections the key steps in this study are outlined,
+    results are presented, and conclusions discussed.</p>
+<h3 id="sec:codesign:generative">Generating Interactive Prototypes to Act as Concrete Probes</h3>
+<p>As mentioned above, generating interactive prototypes to act as concrete probes was viewed as crucial to the success
+    of the co-design session. After establishing a set of initial requirements, prototypes were iterated on until they
+    were deemed appropriate by the entirety of the research group involved at this stage.</p>
+<h4 id="subsec:methodology-requirements">Requirements Gathering</h4>
+<p>The first step taken in the development of the initial set of requirements was the creation of several personas <span
+        class="citation" data-cites="cooper-1999">(Cooper 1999)</span>. Personas embody those who are intended to use
+    the final application, <em>fictional</em> characters described in vivid and realistic detail, they provide an
+    <em>anchor</em> to make decisions from at every stage in the development cycle by allowing creators to continuously
+    ask the question: <em>can persona <em>x</em> use feature <em>y</em> to accomplish goal <em>z</em></em> <span
+        class="citation" data-cites="sharp-2019">(Sharp 2019)</span>. Moreover, extra care must be taken when designing
+    for individuals with I/DD due to the wide variety of assistive technologies which must be accounted for. Creating
+    personas with I/DD can help ensure every feature is built in an accessible manner from the beginning.
+</p>
+<p>For this study three distinct personas were created: Alex, Dave, and Jessica. Each persona was given a profile page
+    within the project documentation consisting of a fictional biography, an image, goals, motivations, frustrations,
+    impairments, the technology they use, and whether not they need assistance to use their technology. After finalizing
+    the personas profiles, each was given a set of scenarios, or “informal narrative descriptions" <span
+        class="citation" data-cites="carroll-2000">(Carroll 2000)</span>, focusing on <strong>how</strong> a task gets
+    done in the application, rather than <strong>what</strong> gets done. These stories provide a more natural way to
+    consider the needs of the user, their overarching goals, and how they feel whilst using the application to complete
+    their task <span class="citation" data-cites="sharp-2019">(Sharp 2019)</span>. Several scenarios were written for
+    each persona of various lengths and complexities.</p>
+<p>Each of these scenarios helped expose implicit assumptions and expectations, refine the personas themselves, and
+    guide the creation of more formal use-cases for the application. Use-cases capture direct interactions between a
+    user and the application by focusing on functional requirements <span class="citation"
+        data-cites="sharp-2019">(Sharp 2019)</span>. In this work, use-cases were created following the
+    <strong>essential use-case</strong> framework, a framework that focuses on discrete steps that alternate between
+    <em>user intentions</em> and <em>system responsibilities</em> <span class="citation"
+        data-cites="constantine-1999">(Constantine and Lockwood 1999)</span>. Thinking about the application in terms of
+    system responsibilities as direct responses to user intentions helped discussions remain productive and focused.
+</p>
+<p>For this work, each individual scenario was broken into as many use-cases as necessary to express all functions
+    required to complete the scenario. Finally, these use cases were then used to generate the formal requirements of
+    the project. An individual requirement defines an <em>expectation</em> for what the application will do or
+    <em>how</em> it will perform <span class="citation" data-cites="sharp-2019">(Sharp 2019)</span>. For this work, the
+    <strong>Volere atomic requirement</strong> <span class="citation" data-cites="sharp-2019">(Sharp 2019)</span>
+    framework was selected to create requirements.
+</p>
+<p>In the Volere framework, each requirement has a general type, links to the relevant use cases in the project
+    documentation, a brief description, rationale, the originator or author of the requirement, fit criterion, customer
+    satisfaction/dissatisfaction ratings, the priority, any conflicting requirements, supporting materials, and the
+    history of changes made to the requirement. In total there were twelve initial requirements drafted during this
+    phase. Although the process of design <em>should</em> be iterative <span class="citation"
+        data-cites="sharp-2019">(Sharp 2019)</span>, these twelve requirements formed the foundation for the creation of
+    the prototypes which would be used in the collaborative design session.</p>
+<h4 id="subsec:methodology:prototypes">Developing the Prototypes</h4>
+<p>Preparing the prototypes for the collaborative design session was a challenge, as they needed to be functional enough
+    to convey the idea, but not so complete that participants take anything for granted. Towards this goal, each
+    prototype began as a low-fidelity mock-up created using Adobe InVision, a drag-and-drop prototyping software,
+    allowing the research team to iterate quickly without having to re-write any actual code. These prototypes were
+    considered internally within the research group and iterated on so that they better reflected the needs of the three
+    personas. After working through a number of versions of each prototype within InVision, each prototype was
+    <em>recreated</em> as a medium-fidelity prototype, using HTML and JavaScript, which provided additional
+    functionality not available within InVision.
+</p>
+<p>For this work, <strong>five different prototypes</strong> were generated from the list of formal requirements. Each
+    prototype focused on a <em>different</em> key element identified during the requirements gathering process. Key
+    elements considered at this stage were: emotional reinforcement, grounding activities, skills games, interactivity,
+    and quizzes. Each of these individual elements, along with their corresponding prototypes are discussed in detail in
+    the following sections.</p>
+<h5 id="sec:methodology-low-emotional">Emotional Reinforcement</h5>
+<p>Emotional reinforcement was proposed as a mechanism to provide <em>intrinsic</em> motivation to end-users. Within
+    this prototype, users are given a virtual pet, as seen in Figure <a href="#fig:med-emotional"
+        data-reference-type="ref" data-reference="fig:med-emotional">3.3</a>. Whenever a user <em>completes a
+        lesson</em>, their pet would become <strong>happier</strong>; however, this happiness would also <em>decay over
+        time</em>, encouraging users to complete lessons frequently enough to <em>keep</em> their pet happy. Applying
+    emotional reinforcement in this way was designed to reward the users of the application for completing lessons
+    whilst preventing the emergence of <em>extrinsic competition</em>; since this technique removes the notion of points
+    or cumulative rewards, <em>user-to-user rankings would be impossible to create</em>.</p>
+<figure id="fig:med-emotional">
+    <img src="/static/img/thesis/html/vp00-sad.png" title="fig:" alt="Emotional reinforcement home screen" style="width:31.0%" /> 
+    <img src="/static/img/thesis/html/vp02-physical-abuse.png"title="fig:" alt="Physical abuse example" style="width:31.0%" /> 
+    <img src="/static/img/thesis/html/vp06-happy.png" title="fig:" alt="Emotional reinforcement home screen" style="width:31.0%" />
+    <figcaption>Screenshots from the medium-fidelity prototype focusing on emotional reinforcement. In the first image one can see the pet is sad, after completing a lesson, the pet becomes happier.<span label="fig:med-emotional"></span></figcaption>
+</figure>
+<h5 id="sec:methodology-low-grounding">Grounding Activities</h5>
+<p>Grounding activities were proposed as a way to help keep users from becoming <em>emotionally triggered</em> as they
+    moved throughout the applications’ lessons. The material presented in the application is of an emotionally charged
+    nature, especially considering some users may have experienced abuse first-hand. A large number of ideas were
+    considered viable grounding activities, examples include breathing exercises, small games (such as solitaire), or
+    simple math activities. Although InVision was not suited for creating interactive elements, a box-tapping game was
+    built in HTML for the medium-fidelity prototype, some screen shots of this game can be seen in Figure <a
+        href="#fig:med-grounding" data-reference-type="ref" data-reference="fig:med-grounding">3.6</a>.</p>
+<figure id="fig:med-grounding">
+    <img src="/static/img/thesis/html/gg00-home.png" title="fig:" alt="Grounding home" style="width:31.0%" /> 
+    <img src="/static/img/thesis/html/gg03-physical.png" title="fig:" alt="Physical abuse example hitting" style="width:31.0%" /> 
+    <img src="/static/img/thesis/html/gg04-boxes.png" title="fig:" alt="Grounding activity" style="width:31.0%" />
+    <figcaption>An example of a grounding activity where users are asked to tap all of the boxes to clear the screen.<span label="fig:med-grounding"></span></figcaption>
+</figure>
+<h5 id="sec:codesign:interactive">Interactive Elements</h5>
+<p>The prototype focusing on interactive elements explored whether or not a <em>more interactive</em> interface could
+    help <em>increase engagement</em> with the materials. In order to answer this question, this prototype featured a
+    video with several buttons that allowed the user to constantly interact with the application. As the video (sourced
+    from the existing A&amp;A training) played, users would be asked to mark things they thought were/were not abusive.
+    As seen in Figure <a href="#fig:med-interactive" data-reference-type="ref"
+        data-reference="fig:med-interactive">3.9</a>, the interface proposed in this version of the prototype relied on
+    two major buttons, signaling abuse or no abuse, similar to the flagging exercise used in the A&amp;A training, where
+    participants are asked to use two physical flags to signal abuse/no abuse as the video plays.</p>
+<figure id="fig:med-interactive" >
+    <img src="/static/img/thesis/html/fg00-home.png" title="fig:" alt="Interactive elements home screen" style="width:31.0%" /> 
+    <img src="/static/img/thesis/html/fg02-video.png" title="fig:" alt="Video playing" style="width:31.0%" /> 
+    <img src="/static/img/thesis/html/fg03-type.png" title="fig:" alt="Follow-up question" style="width:31.0%" />
+    <figcaption>Screenshots of the Interactive Elements prototype focusing on video content and continuous interaction.<span label="fig:med-interactive"></span></figcaption>
+</figure>
+<p>After the video finished playing, users would be brought into an educational flow depending on their reactions to the
+    video, an example of this flow can be seen in Figure <a href="#fig:med-interactive-2" data-reference-type="ref"
+        data-reference="fig:med-interactive-2">3.12</a>. If a user successfully marked the abusive segments of the video
+    as containing abuse, the user would be asked to identify the type of abuse, and then the lesson would conclude.
+    However, if a user <em>did not</em> successfully flag the abusive behaviors, a series of questions would follow the
+    video to teach the user about the abusive behavior they witnessed in the video. Unfortunately, the required
+    mechanisms to demonstrate this educational flow to the participants of the co-design session could not be completed
+    in time, thus the flow had to be demonstrated by manually flipping through various screens.</p>
+<figure id="fig:med-interactive-2">
+    <img src="/static/img/thesis/html/fg05-redemption.png" title="fig:" alt="Redemption question 1" style="width:31.0%" /> 
+    <img src="/static/img/thesis/html/fg07-learning.png" title="fig:" alt="Examples of physical abuse" style="width:31.0%" /> 
+    <img src="/static/img/thesis/html/fg06-done.png" title="fig:" alt="Lesson done" style="width:31.0%" />
+    <figcaption>Examples of corrective actions taken after the conclusion of the video if the user did not successfully identify the abusive behavior.<span label="fig:med-interactive-2"></span></figcaption>
+</figure>
+<h5 id="sec:methodology-low-quiz">Quizzes</h5>
+<p>Quizzes were considered an <em>integral</em> part of this application from the inception of the project. Prompting
+    users to answer a series of questions was viewed as a crucial step to developing a deeper understanding of the
+    content. The prototype focusing on quizzes attempted to evaluate the value of an application that provided
+    <em>only</em> quizzes. In Figure <a href="#fig:med-quizzes" data-reference-type="ref"
+        data-reference="fig:med-quizzes">3.15</a>, a set of example questions from this prototype are shown.
+</p>
+<figure id="fig:med-quizzes">
+    <img src="/static/img/thesis/html/qz01-five-types.png" title="fig:" alt="Five types quiz" style="width:31.0%" /> 
+    <img src="/static/img/thesis/html/qz02-kicking.png" title="fig:" alt="Kicking quiz question" style="width:31.0%" /> 
+    <img src="/static/img/thesis/html/qz05-identity.png" title="fig:" alt="Identity theft quiz question" style="width:31.0%" />
+    <figcaption>A series of questions from the Quizzes prototype.<span label="fig:med-quizzes"></span></figcaption>
+</figure>
+<h5 id="sec:codesign:skills">Skills Activities</h5>
+<p>Instead of focusing entirely on the material itself, this particular prototype was proposed as a way to help users
+    refine <strong>tangential skills</strong>. During the collaborative design session, participants were presented
+    three distinct games, focusing on emotion identification, private body parts, and counting money. In Figure <a
+        href="#fig:med-skills" data-reference-type="ref" data-reference="fig:med-skills">3.18</a>, a screenshot of each
+    activity can be seen.</p>
+<p>Within the emotion identification activity, users would be asked to select the emotion that the person in the image
+    was expressing. The hope for this game was that enhancing somebody’s ability to detect and identify various emotions
+    would help them better recognize warning signs of abuse.</p>
+<p>In order to help individuals better recognize sexual abuse, No Touch Zones, an activity centered around identifying
+    no-touch zones on the body was presented. Within this activity, users would be asked to identify the no-touch zones
+    on two drawings of a male and a female by selecting them on their screen. These drawings can be seen in Figure <a
+        href="#fig:med-skills" data-reference-type="ref" data-reference="fig:med-skills">3.18</a>.</p>
+<p>Finally, focusing on financial abuse, an activity centered around counting money was presented. The Counting Money
+    activity would require users to select US currency denominations until they had reached a pre-specified amount.</p>
+<p>These various activities were put forward to see if participants in the collaborative design session believed
+    developing these soft skills could help individuals with I/DD recognize abuse more rapidly, without actually showing
+    emotionally triggering content.</p>
+<figure id="fig:med-skills">
+    <img src="/static/img/thesis/html/ss01-emotion.png" title="fig:" alt="Emotional Identification" style="width:31.0%" /> 
+    <img src="/static/img/thesis/html/ss02-bodies.png" title="fig:" alt="No touch zone" style="width:31.0%" /> 
+    <img src="/static/img/thesis/html/ss03-money.png" title="fig:" alt="Money counting" style="width:31.0%" />
+    <figcaption>Screenshots from the Skills Activities prototype. From the left to the right, the activities presented are Emotion Identification, No-Touch Zones, and Counting Money.<span label="fig:med-skills"></span></figcaption>
+</figure>
+<p></p>
+<h3 id="sec:methodology-codesign">Results from the collaborative-design session</h3>
+<p>To evaluate and refine the medium-fidelity prototype for the final evaluation, the co-design session was held with a
+    group of individuals who work closely with the existing A&amp;A training. Overall, six co-designers attended this
+    meeting, denoted C1 through C6; of the six participants, C1, C2, C3, and C4 were individuals with I/DD, C5 and C6
+    were able-bodied individuals. C1, C2, C3, and C4 were self-advocates<a href="#fn2" class="footnote-ref"
+        id="fnref2"><sup>2</sup></a>; while C5 and C6 were coordinators who worked with self-advocates. For the session,
+    the medium-fidelity prototypes were both projected onto a large main screen and printed so that they could be
+    distributed to all participants within a physical binder. Throughout the session participants were asked to vocalize
+    as much as possible, to ask questions freely, and to draw in their binders if they desired. Not only did several
+    researchers take notes during the session, but it was also recorded in its entirety.</p>
+<p>During the session, the digital prototypes were treated as concrete probes <span class="citation"
+        data-cites="brereton_design_2015">(Brereton et al. 2015)</span>, participants were free to request the
+    researcher to click anywhere they wanted so that they could experience interaction with the application. The
+    principal researcher of this study led the group through each of the aforementioned prototypes, with a series of
+    interview questions being posed after each had been shown in its entirety.</p>
+<h4 id="subsec:methodology-codesign-emotion">Emotional Reinforcement</h4>
+<p>Overall, participants viewed this prototype negatively. Participants unanimously agreed with C5’s sentiment that
+    “<em>[the application should] never take anything away from somebody</em>", with C5 offering the following
+    suggestion as an alternative: “<em>if you were able to have different items that they could access as they level up,
+        they never get taken away from them, but if they want to become, I don’t know, a master at something, they’re
+        working their way up to that</em>". When reflecting on this guidance, it becomes apparent that the emotional
+    reinforcement mechanism does not fit this bill. Instead of monotonically progressing, the emotional reinforcement
+    prototype had provided a pet that would lose happiness if the user had not logged in and completed a lesson for a
+    certain amount of time. This insight from the participants of the co-design session was directly acted upon for the
+    next iteration of the prototype.</p>
+<h4 id="subsec:methodology-codesign-grounding">Grounding Activities</h4>
+<p>Unlike the element of emotional reinforcement, grounding activities were both less contentious and viewed overall
+    positively; all participants agreed that they should remain in the application. At various points within the current
+    A&amp;A training, the instructors take the participants through grounding activities, such as breathing exercises,
+    in order to keep all of the participants relaxed even though they are learning about emotionally charging content.
+    Just like the in-person training, the application also contains potentially triggering materials, and should
+    endeavor to keep users calm. Participants unanimously agreed with C1’s sentiment that “<em>it can be a little hard
+        for people [to go through the training]</em>", along with C2’s feeling that grounding activities would “<em>keep
+        more people engaged</em>". When asked about what type activities should be included, C4 said “<em>some people
+        are more apt to do the grounding games than sit there and say like okay my app is telling me to breathe, I am
+        breathing, you know?</em>", with C5 adding “<em>everyone regulates differently</em>".</p>
+<p>The next option proposed during the co-design session was to allow the user to select their own grounding activities
+    from a short list of three or four options. C5 quickly pointed out that “<em>I’m not confident that people know what
+        regulates them</em>", leading the group of co-designers to agree that having the application rotate through a
+    variety would be best for the next round of evaluations.</p>
+<p>New insights gained for this element included a time limit of approximately ten minutes, which would help users keep
+    moving, along with the ability to skip the activity if the user did not need it, which generally aligned with
+    earlier research in <span class="citation" data-cites="shaban_learning_2019">(Shaban and Pearson 2019)</span> -
+    users have a desire to feel autonomous, <em>mandatory fun</em> can diminish a user’s feeling of autonomy.
+    Participants also suggested various types of activities that should be considered, such as activities involving
+    early mathematics, painting, etc.</p>
+<h4 id="subsec:methodology-codesign-video">Interactive Elements</h4>
+<p>Integrating video content into the application proved to be <em>challenging</em> during initial development due to
+    technical limitations, as described in Section <a href="#sec:codesign:interactive" data-reference-type="ref"
+        data-reference="sec:codesign:interactive">3.1.2.3</a> Guidance from participants in the co-design session
+    provided much needed clarity even though the prototype of this feature <strong>was not fully implemented</strong>.
+    Unfortunately, the neither the low, nor the medium-fidelity, prototypes were capable of fully demonstrating the
+    desired functionality. In the case of the former, InVision did not support playing videos at all; in the case of the
+    latter, the research team lacked sufficient knowledge of JavaScript to fully implement the needed functionality for
+    the session.</p>
+<p>Instead, co-designers were shown the video while being informed of what users could do during the video, utilizing
+    their abuse/no-abuse buttons to signal about what they were watching. Unlike the in-person training, the application
+    relied on complicated logic to control what the user saw after the video finished playing. Behind the scenes, each
+    video would be split into a discrete number of shorter clips which would be designated as containing abuse or not
+    containing abuse. As the video played, if a participant failed to signal a clip which contained abuse as having
+    abuse, the system would record this event, after the conclusion of the video, the system would ask the user if they
+    had actually seen abuse or not, to ensure that they had not simply forgotten to signal during the abusive scene, if
+    the user correctly answered this question they would be advanced in the lesson, if they did not, they would be taken
+    to slides about the type of abuse contained in the clip to foster a deeper understanding.</p>
+<p>Overall, participants believed integrating videos would be beneficial, but that the process was too complicated. C4
+    joked “<em>Can you see the smoke coming out of my ears yet?</em>". Furthermore, co-designers agreed that, instead of
+    playing the entire clip and then asking questions, that the application should, as C4 put it: “<em>stop the video,
+        ask a question, then go on</em>", alluding to the notion that discrete clips with intermittent prompts would be
+    easier for the target audience of the application. This element in particular demonstrates that even when a feature
+    is not fully-functional, participants with I/DD were more than capable of both understanding the <em>intentions of
+        the element</em> and <em>providing key feedback</em>.</p>
+<h4 id="subsec:methodology-codesign-quiz">Quizzes</h4>
+<p>Quizzes were universally agreed upon, in a similar manner to the concept of grounding activities, all participants
+    believed that having quizzes would benefit the application. However, the original idea proposed was vetoed by the
+    participants. In the medium-fidelity prototype, the quiz acted as a standalone lesson, without preamble. When asked
+    if having just the quiz on its own would be a good thing, all of the participants agreed with C4 that it would
+    ‘probably not’ be good. Instead, C4 recommended that “<em>[it] should either, you know, talk about physical abuse or
+        show the video</em>" before asking any questions. Participants also agreed with C5 that the quiz should “<em>be
+        an option for anyone who chooses to take it</em>", to avoid giving certain users <em>anxiety</em> about using
+    the application.</p>
+<h4 id="subsec:methodology-codesign-skills">Skills Games</h4>
+<p>The final element considered in this co-design session was the use of skills games to approach the problem of
+    understanding and identifying abusive behaviors from a novel direction. Three skills games were presented:
+    <em>Identifying Emotions</em>, <em>No Touch Zones</em>, and <em>Money Counting</em>, as described in Section <a
+        href="#sec:codesign:skills" data-reference-type="ref" data-reference="sec:codesign:skills">3.1.2.5</a>.
+</p>
+<p>Identifying Emotions presented users with images of human actors expressing various emotions, users were asked to
+    identify the emotion being expressed. We found that this game was rejected quite quickly, with participants feeling
+    emotionally charged by simply looking at a male actor expressing anger, one participant was <strong>visibly
+        disturbed by the images</strong> - we considered this skills activity to be <em>too dangerous</em> to continue
+    with. Unlike Identifying Emotions, the other two games were favorably reviewed.</p>
+<p>No Touch Zones asked users to select the no-touch zones on two human bodies, one male and one female, which were
+    rendered as basic line drawings. All participants thought this skill was important and that the game format was
+    adequate, though some small suggestions were made, such as how the application should provide some form of positive
+    reinforcement when a correct area was touched.</p>
+<p>Money Counting asked users to add up denominations of US currency to reach a specified total, in the hopes that this
+    skill would help users catch acts of financial abuse. Again, all participants believed this skill would be useful,
+    no suggestions were made for this game.</p>
+<h2 id="ch:usability">Study II: Usability evaluations of high-fidelity prototypes</h2>
+<p>This qualitative study explored whether a mobile application could effectively reinforce material learned at the
+    Awareness and Action (A&amp;A) training program. After concluding the collaborative design (co-design) study
+    discussed in Chapter <a href="#ch:codesign" data-reference-type="ref" data-reference="ch:codesign">3</a>, feedback
+    from co-designers was integrated with the medium-fidelity prototypes to create three high-fidelity prototypes,
+    written in Dart/Flutter. These high-fidelity prototypes were fully functional, slightly stylized, and
+    mobile-friendly.</p>
+<p>Evaluations were conducted with six individuals with I/DD, focused on soliciting feedback on a variety of issues,
+    including: the usability of the application, it’s effectiveness, and participants willingness to download/use the
+    application. Along with explicit verbal feedback prompted by a series of interview questions, video recordings were
+    made of all sessions and analyzed for non-verbal reactions, such as laughter or incorrect selections. Results from
+    the evaluations were analyzed to set the stage for future works in this area. Over the next several sections the key
+    steps to this study will be broken down and elaborated on.</p>
+<h3 id="sec:usability-study-methods">Usability Study Methods</h3>
+<h4 id="subsec:methodology-evaluations-setting">Setting</h4>
+<p>The setting for the user evaluations in this study was a video conference call hosted on the Zoom videoconferencing
+    platform. Due to the Covid-19 pandemic, the organization and execution of in-person trials was considered too
+    dangerous to attempt, as they could have potentially jeopardized the health of participants and researchers alike.
+    In accordance with previous research on remote user evaluations in <span class="citation"
+        data-cites="petrie-remote-2006">(Petrie et al. 2006)</span> and <span class="citation"
+        data-cites="andreasen-what-2007">(Andreasen et al. 2007)</span>, remote-synchronous trials were implemented,
+    facilitated by Zoom.</p>
+<h4 id="subsec:methodology-evaluations-participants">Participants</h4>
+<table>
+    <caption>Table of participants for the usability evaluation.<span label="tbl:usability-participants"></span>
+    </caption>
+    <thead>
+        <tr class="header">
+            <th style="text-align: left;">Participant ID</th>
+            <th style="text-align: left;">Age</th>
+            <th style="text-align: left;">Gender</th>
+            <th style="text-align: left;">Disability</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="odd">
+            <td style="text-align: left;">P1</td>
+            <td style="text-align: left;">34</td>
+            <td style="text-align: left;">M</td>
+            <td style="text-align: left;">ASD</td>
+        </tr>
+        <tr class="even">
+            <td style="text-align: left;">P2</td>
+            <td style="text-align: left;">46</td>
+            <td style="text-align: left;">F</td>
+            <td style="text-align: left;">IDD - Hearing Loss</td>
+        </tr>
+        <tr class="odd">
+            <td style="text-align: left;">P3</td>
+            <td style="text-align: left;">29</td>
+            <td style="text-align: left;">M</td>
+            <td style="text-align: left;">Seizure Disorder, ASD</td>
+        </tr>
+        <tr class="even">
+            <td style="text-align: left;">P4</td>
+            <td style="text-align: left;">43</td>
+            <td style="text-align: left;">M</td>
+            <td style="text-align: left;">Acquired Brain Injury - IDD</td>
+        </tr>
+        <tr class="odd">
+            <td style="text-align: left;">P5</td>
+            <td style="text-align: left;">27</td>
+            <td style="text-align: left;">F</td>
+            <td style="text-align: left;">William Syndrome, PTSD, Chronic Anxiety</td>
+        </tr>
+        <tr class="even">
+            <td style="text-align: left;">P6</td>
+            <td style="text-align: left;">N/P</td>
+            <td style="text-align: left;">M</td>
+            <td style="text-align: left;">N/P</td>
+        </tr>
+    </tbody>
+</table>
+<p>There were six participants recruited for this evaluation. All six participants had some degree of
+    Intellectual/Developmental-Disabilities (I/DD), three were actively conducting A&amp;A trainings, two had been
+    A&amp;A trainers in the past, and the final participant had never been an A&amp;A trainer. Participants were between
+    27 and 46 years old, all of them were technologically savvy and able to communicate verbally due to the nature of
+    the remote evaluation. See Table <a href="#tbl:usability-participants" data-reference-type="ref"
+        data-reference="tbl:usability-participants">[tbl:usability-participants]</a> for details on each participant in
+    this study.</p>
+<h4 id="subsec:usability:materials">Materials</h4>
+<p>Each participant received, as materials, a link to their individual virtual meeting. Participants used their own
+    devices to sign in to the meeting. Since we could not distribute devices containing the application to each
+    individual and monitor their usage, the primary researcher in this study made use of the <strong>screen
+        share</strong> feature in Zoom to share an emulator running the application with the participant. If a user
+    logged into the meeting on a computer, control would be ceded to them, again via the help of Zoom; if a participant
+    logged in on a mobile device that was not capable of taking control of the shared emulator, the participant would be
+    asked to <em>direct</em> the principal researcher to click through the application for them. When the principal
+    researcher was required to maintain control of the emulator, they acted solely as the ‘hands’ of the participant,
+    allowing them to dictate <em>without correcting them</em>.</p>
+<h4 id="subsec:methodology-evaluations-measurements">Measurement Instruments</h4>
+<p>To measure the success of the application a number of different data-collection methods were implemented.
+    Participants in the user evaluations were asked to provide as much verbal feedback as possible whilst using the
+    application, along with answering pre-determined interview questions at various intervals. This entire process was
+    recorded and transcribed for thematic analysis, which combined participants’ responses to the interview questions
+    with their observed behaviors during the trial. While the <em>primary</em> conclusions presented in this work
+    emanate from the participants answers to the interview questions, the thematic analysis performed on the entirety of
+    the evaluation provided additional insights into user sentiment.</p>
+<h4 id="subsec:methodology-evaluations-procedure">Procedure</h4>
+<figure id="fig:prototype-examples">
+    <img src="/static/img/thesis/screenshots/a/02-slide.png" title="fig:" alt="Example of sexual abuse" style="width:31.0%" /> 
+    <img src="/static/img/thesis/screenshots/b/04-video.png" title="fig:" alt="Example of video screen" style="width:31.0%" /> 
+    <img src="/static/img/thesis/screenshots/c/06-skills.png" title="fig:" alt="Example of no-touch zone activity" style="width:31.0%" />
+    <figcaption>Examples from all three versions of the final prototype. Left: A slide from version A. Center: The video screen from version B. Right: The No-Touch skills game from version C.<span label="fig:prototype-examples"></span></figcaption>
+</figure>
+<p>User evaluations were completed with one participant per session over the course of two weeks. Each session lasted
+    approximately one hour. Participants initiated the session by signing into the Zoom conference call via a provided
+    link at a pre-determined time.</p>
+<p>Once a participant joined the meeting, a researcher verbally walked them through the informed consent form which they
+    had already signed and submitted to verify their intent to participate in the study. After confirming that the
+    participant understood the nature of the research, the principal researcher attempted to give control to them via
+    Zoom’s ’remote control’ feature. As mentioned in Section <a href="#sec:usability:materials"
+        data-reference-type="ref" data-reference="sec:usability:materials">4.1.3</a>, this feature only worked when a
+    participant joined the call on a computer, otherwise the participant was asked to dictate what they wished the
+    principal researcher to click on.</p>
+<p>During each session three distinct prototypes were trialed. Each version attempted to refresh the participant’s
+    knowledge of <strong>sexual abuse</strong> in a <em>different</em> way. <em>Version A</em> used a deck of slides
+    which were extracted from the A&amp;A training materials. <em>Version B</em> presented the updated version of the
+    video content from Section <a href="#sec:codesign:interactive" data-reference-type="ref"
+        data-reference="sec:codesign:interactive">3.1.2.3</a>; based on feedback from the co-design session, the sexual
+    abuse video from the A&amp;A training was segmented into three discrete clips, two of which contained abuse.
+    Finally, <em>version C</em> trialed the <em>No Touch Zones</em> skills-game as discussed in Section <a
+        href="#sec:codesign:skills" data-reference-type="ref" data-reference="sec:codesign:skills">3.1.2.5</a>. A
+    screenshot from each of these versions can be seen in Figure <a href="#fig:prototype-examples"
+        data-reference-type="ref" data-reference="fig:prototype-examples">4.3</a>.</p>
+<p>While the order each participant viewed each version was counter-balanced, the general flow of each session was as
+    follows:</p>
+<ol>
+    <li>
+        <p>Instructions were given, including the directive to vocalize as much as possible during the study</p>
+    </li>
+    <li>
+        <p>The user is given an orientation of the application by the lead researcher</p>
+    </li>
+    <li>
+        <p>Control transfer is attempted</p>
+    </li>
+    <li>
+        <p>The user was asked to complete a version of the lesson</p>
+    </li>
+    <li>
+        <p>Survey questions were asked on the version they had just completed</p>
+    </li>
+    <li>
+        <p>The same two steps above were repeated for each version</p>
+    </li>
+    <li>
+        <p>After all versions had been viewed, questions on all three versions were asked</p>
+    </li>
+</ol>
+<p>Once the above steps had been completed participants were debriefed and they signed off, concluding the evaluation.
+</p>
+<h4 id="subsec:methodology-evaluations-analysis">Data Analysis</h4>
+<p>The collected recordings from the evaluations were transcribed and analyzed for thematic content with regards to user
+    sentiment towards each version. A code for this analysis was developed over several iterations of thematic analysis.
+    Particular emphasis is placed on participants’ answers to direct questions, <em>supplemented</em> with their
+    reactions while using the application and the number of interventions needed for them to complete a lesson.
+    Quotations were then selected from the evaluations to illustrate the sentiment of each participant.</p>
+<p>The code developed during this process is reflected in Table <a href="#tbl:theme-definition"
+        data-reference-type="ref" data-reference="tbl:theme-definition">[tbl:theme-definition]</a>.</p>
+<table>
+    <caption>Definition of the code used for the thematic analysis.<span label="tbl:theme-definition"></span></caption>
+    <thead>
+        <tr class="header">
+            <th style="text-align: left;">Theme</th>
+            <th style="text-align: left;">Definition</th>
+            <th style="text-align: left;">Examples</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="odd">
+            <td style="text-align: left;">Positive Reaction</td>
+            <td style="text-align: left;">When a participant exhibits a positive reaction while using or discussing the
+                application.</td>
+            <td style="text-align: left;">"This is good", "I like this", "Wow"</td>
+        </tr>
+        <tr class="even">
+            <td style="text-align: left;">Negative Reaction</td>
+            <td style="text-align: left;">When a participant exhibits a negative reaction while using or discussing the
+                application.</td>
+            <td style="text-align: left;">"This is bad", "This is confusing", "I don’t agree", "I don’t understand"</td>
+        </tr>
+        <tr class="odd">
+            <td style="text-align: left;">Intervention Required</td>
+            <td style="text-align: left;">When a researcher has to intervene so that the participant can complete a
+                task.</td>
+            <td style="text-align: left;">"I need help", "How do I?"</td>
+        </tr>
+        <tr class="even">
+            <td style="text-align: left;">Incorrect Response</td>
+            <td style="text-align: left;">When a participant selects an incorrect answer.</td>
+            <td style="text-align: left;">"Oops"</td>
+        </tr>
+        <tr class="odd">
+            <td style="text-align: left;">Enhancements</td>
+            <td style="text-align: left;">When a participant suggests an improvement to the application that is not a
+                fix.</td>
+            <td style="text-align: left;">"Add feature X"</td>
+        </tr>
+        <tr class="even">
+            <td style="text-align: left;">A&amp;A Connection</td>
+            <td style="text-align: left;">When a participant connects the application to the in-person training.</td>
+            <td style="text-align: left;">"This reminds me of x from A&amp;A"</td>
+        </tr>
+    </tbody>
+</table>
+<h3 id="sec:results">Results</h3>
+<p>User evaluations yielded a wealth of knowledge with regards to the efficacy of an application designed to refresh an
+    individual’s knowledge about abuse. Both the interactive portion and the follow-up questions were designed to be
+    semi-structured, allowing participants to communicate however they saw fit, moreover, participants were
+    <em>guaranteed anonymity</em> to encourage an honest and open discussion. Overall, there were 337 total themes
+    identified. Of these 337 themes, 201 were positive, 68 were negative, with the rest distributed between
+    intervention, suggestion, awareness, and incorrect. All of the themes recorded during the analysis process loosely
+    fit into five distinct areas, each of which is broken down and expanded upon in the following sections.
+</p>
+<h4 id="subsec:the-impact-of-interactive-content-on-engagement">The Impact of Interactive Content on Engagement</h4>
+<table>
+    <caption>A table displaying participants’ favorite version of the prototype. Overall versions B and C tied as
+        participants’ favorite.<span label="tbl:version-rank"></span></caption>
+    <thead>
+        <tr class="header">
+            <th style="text-align: left;">Participant</th>
+            <th style="text-align: left;">Favorite</th>
+            <th style="text-align: left;">Middle</th>
+            <th style="text-align: left;">Least Favorite</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="odd">
+            <td style="text-align: left;">P1</td>
+            <td style="text-align: left;">B</td>
+            <td style="text-align: left;">C</td>
+            <td style="text-align: left;">A</td>
+        </tr>
+        <tr class="even">
+            <td style="text-align: left;">P2</td>
+            <td style="text-align: left;">C</td>
+            <td style="text-align: left;">A</td>
+            <td style="text-align: left;">B</td>
+        </tr>
+        <tr class="odd">
+            <td style="text-align: left;">P3</td>
+            <td style="text-align: left;">B</td>
+            <td style="text-align: left;">C</td>
+            <td style="text-align: left;">A</td>
+        </tr>
+        <tr class="even">
+            <td style="text-align: left;">P4</td>
+            <td style="text-align: left;">C</td>
+            <td style="text-align: left;">B</td>
+            <td style="text-align: left;">A</td>
+        </tr>
+        <tr class="odd">
+            <td style="text-align: left;">P5</td>
+            <td style="text-align: left;">C</td>
+            <td style="text-align: left;">B</td>
+            <td style="text-align: left;">A</td>
+        </tr>
+        <tr class="even">
+            <td style="text-align: left;">P6</td>
+            <td style="text-align: left;">B</td>
+            <td style="text-align: left;">A</td>
+            <td style="text-align: left;">C</td>
+        </tr>
+    </tbody>
+</table>
+<p>Within this work, three prototypes were evaluated which can be broadly classified as having either static or
+    interactive content. In version A users are presented with a deck of slides, a static medium, which fared poorly
+    overall. Version B and C contained videos and skills games respectively, two interactive forms of content which
+    solicited user input during the entirety of the lesson. It is clear that based on the overall rankings from each
+    participant, depicted in Table <a href="#tbl:version-rank" data-reference-type="ref"
+        data-reference="tbl:version-rank">[tbl:version-rank]</a>, interactive content was preferred to static, with 6/6
+    participants preferring either version B or C over version A.</p>
+<h5 id="video-quizzes-were-engaging">Video Quizzes were Engaging</h5>
+<p>Between version B and C, participants generally seemed to indicate that they did have a preference for the videos in
+    version B, with thirty positive reactions towards that modality versus twenty for the skills game found in version
+    C. P1 put it quite explicitly, commenting during his trial with version B, that he “<em>Definitely like[s] this
+        version better because it plays the video clips. ... Because you get to see it action</em>". Even though P4 and
+    P5 preferred the skills game in the end, they both shared some key insights as to why the videos were so effective.
+    P4 stated with regards to the video “<em>they’ll understand it better that way than if you’re just showing
+        pictures... how do we know what it means if we don’t have the video in it?</em>", while when P5 compared slides
+    to the video he had this to say: “<em>[The slides] don’t give you an example of reality, but when you put in videos,
+        now you have a reality.</em>"</p>
+<h5 id="skills-activities-were-informative">Skills Activities were Informative</h5>
+<p>Although version C did have fewer positive remarks, it still tied with version B for the participants’ favorite.
+    While some of this may be caused by the negative reactions to the user interface in version B lowering its overall
+    appeal, which will be discussed in the next chapter, it demonstrates that skills games may be an effective tool for
+    learning. P2 found that the skills game was “<em>very useful, I think people would understand it</em>" and that
+    “<em>they would learn more with the body parts</em>". Likewise, P5 found that “<em>The skills game make[s] it easier
+        to identify what is.</em>"</p>
+<h5 id="lack-of-engagement-with-slides">Lack of Engagement with Slides</h5>
+<p>During the course of the user evaluations, participants expressed a number of concerns, critiques, and issues with
+    version A. P5 stated “<em>I think if you just have slides, then the slides just run together</em>", a sentiment
+    shared by others during the evaluation.</p>
+<h5 id="navigation-was-intuitive">Navigation was Intuitive</h5>
+<p>Access to technology can be limited for persons with I/DD if applications are not designed with them in mind,
+    ease-of-use is of the utmost importance. All six participants reported that the application was easy to use, with
+    most participants giving concrete affirmations that they thought the system was intuitive. P1 stated that “<em>I
+        don’t think anyone would be confused. ... I think everyone would get it.</em>", P2 said “<em>it was very easy
+        for me to use it</em>", sentiments shared by the other participants.</p>
+<h5 id="acknowledgment-was-effective-for-motivating-users">Acknowledgment was Effective for Motivating Users</h5>
+<p>Integrating the element of acknowledgement into the application was considered crucial to motivate users to return to
+    the application. The use of emojis to acknowledge when a user completed a lesson was enjoyed by <strong>all six
+        participants</strong>. P6 in particular seemed to greatly enjoy the experience, after every lesson he completed,
+    he took the time to change his emoji to the newly unlocked one. Moreover, no participant reacted negatively to that
+    element in any of the presented prototypes.</p>
+<h4 id="subsec:the-importance-of-including-grounding-activities">The Importance of Including Grounding Activities</h4>
+<p>Preventing users from being triggered emotionally should be of the utmost importance while working with sensitive
+    topics, such as abuse; especially in a digital setting where users may be alone. As P5 so aptly pointed out, when
+    completing these types of lessons at home, if one were to be triggered “<em>Where is there to go? Where is there to
+        feel safe if you’re technically supposed to already be in the safe spot?</em>". Physical trainings do not suffer
+    from this same issue, again as P5 pointed out, “<em>the good thing about the personal trainings we do is you can
+        take a staff and go out into the hallway and cool down.</em>" These excerpts clearly demonstrate the seriousness
+    of keeping individuals, who may be alone, grounded during the learning process.</p>
+<p>Within this study, we explored the effectiveness of music as a grounding activity through the use of a
+    <em>Xylophone</em> activity in which users were allowed to play various musical notes; a screenshot of this activity
+    can be seen in Figure <a href="#fig:xylophone" data-reference-type="ref" data-reference="fig:xylophone">4.4</a>. One
+    interesting observation was the participants enjoyment of the music activity as a grounding exercise. Overall, P2,
+    P3, P4, P5, and P6 all expressed positive feelings towards the music application. When asked if it would help
+    individuals relax, P3 confirmed that “<em>[he] think[s] it would.</em>" Moreover, several participants played with
+    this activity at <strong>every opportunity</strong> during the evaluation.
+</p>
+<figure id="fig:xylophone">
+    <img src="/static/img/thesis/screenshots/05-music.png" alt="The Xylophone grounding activity." style="width:31.0%" />
+    <figcaption>The Xylophone grounding activity.<span label="fig:xylophone"></span></figcaption>
+</figure>
+<h4 id="subsec:using-the-application-for-reporting-abuse">Using the Application for Reporting Abuse</h4>
+<figure id="fig:menu">
+    <img src="/static/img/thesis/screenshots/03-menu.png" alt="The always-available menu." style="width:31.0%" />
+    <figcaption>The always-available menu.<span label="fig:menu"></span></figcaption>
+</figure>
+<p>Although the application presented in this paper was designed for learning, several participants insisted that it
+    could serve a larger role for the community of individuals with I/DD. P1, P2, and P4 all believed that the
+    application could also be used to help individuals with I/DD <strong>report abusive behavior</strong>. Specifically,
+    these participants believed that individuals with I/DD, especially those who are non-verbal, could use this
+    application to express <em>what happened to them</em> to those around them. P2 stated that users could use the app
+    to say “<em>this is what happened to me, and they can click on the picture and show the person. ... it’s going to be
+        very helpful to some people. I’m not saying everybody, but some people are going to get very good use out of
+        it.</em>", and that “<em>I think people are going to call DPPC more and use the hotline than what they’re doing
+        right now.</em>", clear indications that this application may be an effective tool for reporting. P4 noted,
+    while looking at the <em>always-available menu</em>, as seen in Figure <a href="#fig:menu" data-reference-type="ref"
+        data-reference="fig:menu">4.5</a>, “<em>That’s really a good way to ask the question, ’How can I help you?’,
+        well, I need to call this person, the DPPC, okay well click that.</em>"</p>
+<p>While reporting abuse was not a goal for the application presented in this study, participants demonstrated the
+    <em>need</em> for consideration in that direction. Instead of relying on verbal and gestural descriptions, providing
+    users with a reference library of the different types of abuse could be empowering.
+</p>
+<h4 id="subsec:the-effectiveness-of-using-an-application-to-refresh-knowledge-of-abuse">The Effectiveness of Using an
+    Application to Refresh Knowledge of Abuse</h4>
+<p>Participants in this evaluation were asked to use the prototype and answer follow-up questions. Both of these
+    techniques indicated that users found the application to be an overall success. All six participants in this study
+    indicated that they would download the application, that they would use the application, and that they would
+    recommend others download and use the application as well. Overall, participants believed that this application
+    would be effective at refreshing the knowledge attained during the in-person A&amp;A training. Concrete examples of
+    this belief can be found across all six evaluations and across all three of the presented prototypes.</p>
+<h5 id="recommending-others-use-the-application">Recommending Others Use the Application</h5>
+<p>Within this study, recommending that others download and use the application to refresh their memory is considered an
+    indication that the participant <strong>believes the application to be an effective learning tool</strong>. P1, as
+    an A&amp;A trainer, stated that he would recommend his students use the application “<em>every 48 hours, every two
+        days</em>" after having seen all three versions of the application presented during the user evaluations.
+    Similarly, P2, P3, and P6 also stated that others should use the app either daily or every other day so that, as P2
+    stated, “<em>they can remember what they saw, or if something happened to them, they can show it</em>". Unlike P1,
+    P2, P3, and P6; P4 and P5 provided looser guidance as to how often users should complete lessons. P4 indicated that,
+    in regard to the training, “<em>if you do it less, then you’re not gaining the strength to tell somebody, if you use
+        it more then you’re gonna be like okay, now I know I really need to say something. Cause’ a lot of people just
+        shut down, they get shocked, they don’t know what to say, they don’t know what to do, and I think that if it was
+        more that it would definitely be a better thing to have.</em>" Somewhat contrarily to all of the other
+    participants, P5 strongly emphasized that users should only use it “<em>As they’re comfortable.</em>" focusing on
+    the fact that individuals have undergone different amounts of trauma and that they know best what is good for them.
+</p>
+<h5 id="willingness-to-download">Willingness to Download</h5>
+<p>Additionally, all six participants declared that they themselves would download the application, although P1
+    stipulated that he would only do so “<em>if it was like version B</em>" (the video-based version). Interestingly,
+    all participants stated that they would use the application less than or equal to the number of times they would
+    recommend others use it. P5, when asked if he would download and use the app explained it as follows “<em>I would
+        download it. Because I don’t know how often I would use it, but I would definitely download it. But, then again,
+        I’m a trainer and trainers only look over it once every while.</em>", a sentiment that may have been felt across
+    participants 1 through 5, all of which were either actively conducting A&amp;A trainings or had done so in the past.
+    P6, the only person who had not been an A&amp;A trainer, was also quite confident in his understanding of the
+    material, explaining “<em>I don’t need to do like the daily one I don’t think.</em>", belying a sense of confidence
+    which may warrant further investigation.</p>
+<h2 id="ch:discussion">Discussion</h2>
+<p>Individuals with I/DD are abused at a higher rate than able-bodied individuals <span class="citation"
+        data-cites="valenti-hein_sexual_1995">(Valenti-Hein and Schwartz 1995)</span>. One potential way to reduce the
+    rate of abuse is to educate individuals with I/DD about abuse, what to do when it happens, and how to report it;
+    hopefully preventing further incidents from occurring. The purpose of this work was to create a digital application
+    capable of refreshing an individual’s knowledge of abuse <em>anytime and anywhere</em>.</p>
+<p>Based on the results of the usability study, one can conclude that the prototypes presented in this work may be a
+    viable way to refresh an individual’s knowledge of abuse based on the Awareness and Action (A&amp;A) training. All
+    participants indicated that they thought the application would be beneficial, that they would recommend others use
+    it, and that it would be effective. From the literature review conducted in Chapter <a href="#ch:related"
+        data-reference-type="ref" data-reference="ch:related">2</a>, it can be seen that research into educational
+    applications for serious contexts, such as abuse, with individuals with I/DD is under-explored. Consequently, based
+    on the results from this work, recommendations are outlined for future works in this area.</p>
+<h3 id="sec:recommendations-for-future-applications">Recommendations for Future Applications</h3>
+<p>Even though participants in Chapter <a href="#ch:usability" data-reference-type="ref"
+        data-reference="ch:usability">4</a> stated that they would download and use the application as it was presented
+    in the usability study, based on the results of both studies conducted in this work, it appears a combination of
+    prototypes may be more effective than any of the prototypes on their own. Overall, results from Chapter <a
+        href="#ch:usability" data-reference-type="ref" data-reference="ch:usability">4</a> demonstrate that participants
+    found Version A (Slides) to be boring, that Version B (Video) was challenging to use, and that Version C (Skills
+    Activities) may not have had enough content. Meanwhile, results from Chapter <a href="#ch:codesign"
+        data-reference-type="ref" data-reference="ch:codesign">3</a> indicate that slides can play a crucial role in
+    providing context for the more dynamic units, such as the video quiz or skills activities.</p>
+<p>Therefore, while none of the prototypes were found to be perfect individually, a combination of the three versions is
+    promising. More specifically, the results in this work indicate that arranging content as: slides, followed by a
+    grounding activity, followed by a video-quiz or skills activity, finally followed by an acknowledgement, could be
+    <em>highly</em> effective. Hybridizing the prototypes in this way could take advantage of the strongest aspects of
+    each, while simultaneously mitigating their shortcomings.
+</p>
+<h3 id="sec:solutions-for-reporting-abuse-for-individuals-with-idd">Solutions for Reporting Abuse for Individuals with I/DD
+</h3>
+<p>One of the key points uncovered during the usability evaluations was the importance of providing mechanisms to
+    facilitate the reporting of abuse for individuals with I/DD who may or may not be non-verbal. Several participants
+    mentioned this need at various points in the evaluations. Focus should be directed towards providing interfaces that
+    individuals with I/DD can use to quickly navigate through large quantities of content, allowing them to quickly
+    surface images of importance so that they can show others a specific image at a moment’s notice.</p>
+<p>One illustrative example would be, imagine a user who wishes to show a mandated reporter what happened to them. This
+    user should be able to open the application, navigate to an image depicting what happened to them, and show that
+    image to the reporter, quickly and easily. Providing users with a way to communicate about and better report abuse
+    could prove to be an effective mechanism for stopping additional instances of abuse in the future.</p>
+<h3 id="sec:limitations">Limitations</h3>
+<p>Although user evaluations conducted in this study yielded positive results, there were a number of potentially
+    limiting factors. Time constraints, made worse by the Covid-19 pandemic, forced the scope of this work to narrow,
+    leaving key elements for further investigation. While this work has flushed out the necessary components, it did not
+    examine the correct composition of components, nor stylistic decisions, so that the application could be intuitive
+    to use for individuals with I/DD. Furthermore, these studies themselves were conducted with only a single individual
+    who had not previously taught the A&amp;A training, potentially biasing the results in the positive direction, as
+    our participants were all individuals who already believed in the efficacy of the training.</p>
+<h4 id="subsec:accessibility-was-not-a-focus-of-research">Accessibility was not a Focus of Research</h4>
+<p>Although participant responses were positive to the interview questions, during the user evaluations, the number of
+    interventions required for a participant to complete a lesson were tracked and recorded. Of the thirty interventions
+    required for all participants to complete the three lessons, nineteen of them were for the video unit, with seven
+    for the quiz, and the remaining three divided equally between the music, skills, and navigation. Along with the
+    interventions, a few participants did express their feelings about the video interface during their experience with
+    the prototype, with P2 stating “<em>this whole section confused me</em>". One should note the contradictory findings
+    from the answers to the questions versus the number of interventions required to complete the unit.</p>
+<p>Overall, focusing more on accessibility and the intuitiveness of the application could help reduce the number of
+    interventions, allowing participants to experience more of the application for themselves rather than requiring
+    assistance to complete activities. Future work should focus on improving the design of the application to decrease
+    the number of interventions necessary for an individual to complete a lesson.</p>
+<h4 id="subsec:sample-population-biases">Sample Population Biases</h4>
+<p>Participants in Chapter <a href="#ch:usability" data-reference-type="ref" data-reference="ch:usability">4</a> were
+    predominately A&amp;A instructors at one point or were actively providing A&amp;A trainings at the time of the
+    evaluations. Recruiting from this population for these evaluations may have biased results in the positive
+    direction, as these participants have a direct interest in the A&amp;A training materials. Moreover, these
+    participants may be generally biased to applications more similar to the A&amp;A training, especially if they
+    believe the current training to be effective.</p>
+<h4 id="subsec:limitations-in-user-device-control">Limitations in User Device Control</h4>
+<p>For this study, users were asked to log in using the device of their choosing. Unfortunately, this prevented the
+    ceding of control to any participant who did not join the session from a desktop computer. The inability for certain
+    participants to control the application due to technical limitations may have biased results as dictation can hide
+    certain misunderstandings. For example, when a participant dictated something like ‘next’, the researcher
+    controlling the emulator would take that to mean clicking on the arrow to move the screen forward, even when other
+    interpretations were possible, such as scrolling.</p>
+<h2 id="ch:conclusion">Conclusions and Future Work</h2>
+<p>This thesis pushes forward the scientific communities’ understanding of what an effective application for refreshing
+    an individual’s knowledge of abuse may look like. After conducting an initial survey of previous efforts in teaching
+    individuals with Intellectual/Developmental Disabilities (I/DD), two studies were conducted sequentially in which
+    persons with I/DD were asked to help design and help evaluate several prototypes. Findings from these studies formed
+    the basis of application recommendations that will hopefully prove effective in future larger-scale research
+    efforts. Hopefully, continuing to improve the accessibility of educational tools for persons with I/DD can help
+    improve the rate of reporting abusive behavior and, in turn, reduce instances of abuse.</p>
+<p>Study one in this work used collaborative design (co-design) to evaluate the potential effectiveness of five
+    different prototypes. Within this work participants were shown a concrete probe and asked to provide as much
+    feedback as possible. Even though certain elements in this stage were difficult to explain, numerous valuable
+    insights were provided, from ruling out elements that would not work, to improving elements that would make it to
+    the usability study.</p>
+<p>Study two, the usability evaluation, focused on determining the most effective way to engage with potential end-users
+    of the final application. Executing this study in a remote synchronous fashion proved to have several challenges,
+    yet the information obtained was nonetheless informative and insightful. Watching several participants manipulate
+    the application directly revealed points of friction in the user interface, with semi-structured interview questions
+    providing deeper insights into how participants felt while using the application. Overall, results from this study
+    were extremely promising.</p>
+<p>Several conclusions can be made based on the results of the two studies included in this work. First and foremost, it
+    is clear from the evidence gathered during the execution of this work that an application can be an effective tool
+    to refresh an individual’s knowledge about abuse. Individuals explicitly stated that they would use the application
+    <em>as it was presented</em>, a high-fidelity prototype, immediately; and, that they would recommend others do the
+    same. These results were even more promising as the participants making these claims were, in some cases, themselves
+    A&amp;A trainers.
+</p>
+<p>Second, one can conclude that remote synchronous evaluations are a viable way to overcome challenges present in the
+    current global climate. During the trials presented here we experienced only minor technological glitches and
+    managed to glean a depth of information.</p>
+<p>Finally, one can see a clear indication that individuals with I/DD need an application like the one proposed here.
+    Not only do the results indicate that the application could be effective in refreshing knowledge, they indicate that
+    an application like the one proposed here could also increase reporting directly through the use of the included
+    buttons designed to call an emergency contact or the DPPC, along with the imagery which could be used to communicate
+    precisely what happened to the user themselves.</p>
+<h3 id="sec:recommendations-for-future-research">Recommendations for Future Research</h3>
+<p>Future research should focus on accessibility of the application through the use of a large-scale remote asynchronous
+    study, with periodic interviews to assess the successful integration of the application into lives of the
+    participants. Extending this work with such a study could provide the last step in taking the proposed application
+    to being production ready. Within this work, it is recommended that researchers present a singular version of the
+    prototype, a combination of the three versions presented in Chapter <a href="#ch:usability"
+        data-reference-type="ref" data-reference="ch:usability">4</a>, as discussed in Chapter <a href="#ch:discussion"
+        data-reference-type="ref" data-reference="ch:discussion">5</a>. In order to better understand the results from
+    this study, the final application should be properly instrumented to emit metrics for the research group to analyze;
+    metrics such as the frequency of use, number of incorrect responses, number of navigational movements during a
+    lesson, and the time spent on each page could provide valuable insight into the intuitiveness of the application.
+</p>
+<p>Along with this larger-scale study, an effort should also be made to understand how this application could better
+    serve in the roll of assisting individuals to report abusive behavior. Within this work, a more formative approach
+    should be taken, perhaps beginning with a focus group or a co-design session focusing on how to lower the barriers
+    to reporting so that individuals with I/DD may feel confident in their ability to report abuse successfully and
+    securely. Special attention should be given to the indication that users of the application may benefit from having
+    a library of imagery accessible for when they are trying to communicate what has happened to them. Moreover, future
+    work could consider the implications of providing a way to report abuse in which individuals are able to actually
+    reports about abusive events using the pictures from the application directly.</p>
+<h2 id="supplemental-materials">Supplemental Materials</h2>
+<h3 id="thematic-analysis">Thematic Analysis</h3>
+<h4 id="positive-reaction">Positive Reaction</h4>
+<p>Origin: Part of the initial set</p>
+<p>Other terms: Satisfaction, good, happy, liked it</p>
+<p>Coded as: theme-positive</p>
+<p>Definition: When a participant exhibits a positive reaction while using or discussing the application.</p>
+<p>Examples: This is good. I like this. Wow.</p>
+<p>Quotes:</p>
+<ol>
+    <li>
+        <p>"I just think it’s very helpful." - P1, line  277</p>
+    </li>
+    <li>
+        <p>"The content the way it was set up I definitely like it. It was simple for anyone to understand." - P1, line
+             314</p>
+    </li>
+    <li>
+        <p>"I think this is going to be very helpful for people, you know? Not just because we’re doing it, but I think
+            more people will be able to understand it." - P2, line  141</p>
+    </li>
+</ol>
+<h4 id="negative-reaction">Negative Reaction</h4>
+<p>Origin: Part of the initial set</p>
+<p>Other terms: Dissatisfaction, bad, not good</p>
+<p>Coded as: theme-negative</p>
+<p>Definition: When a participant exhibits a negative reaction while using or discussing the application.</p>
+<p>Examples: I don’t like this. This is confusing. It won’t do x.</p>
+<p>Quotes:</p>
+<ol>
+    <li>
+        <p>"I’m kinda on the fence with it." - P1, line  297</p>
+    </li>
+</ol>
+<h4 id="intervention-required">Intervention Required</h4>
+<p>Origin: Part of the initial set</p>
+<p>Other terms: Confusion, help, how can I?, you should change this</p>
+<p>Coded as: theme-intervention</p>
+<p>Definition: When a participant needs or asks for help from the researchers to complete a task. Anytime the user is
+    interrupted or prompted to do something.</p>
+<p>Examples: How do I? Can you please do? Now do x.</p>
+<p>Quotes:</p>
+<ol>
+    <li></li>
+</ol>
+<h4 id="incorrect-responses">Incorrect Responses</h4>
+<p>Origin: Part of the initial set</p>
+<p>Other terms: wrong answer, oops,</p>
+<p>Coded as: theme-incorrect</p>
+<p>Definition: An incorrect response to a quiz question.</p>
+<p>Examples: When a participant submits an incorrect answer on a quiz</p>
+<p>Quotes:</p>
+<ol>
+    <li></li>
+</ol>
+<h4 id="awareness-and-action-references">Awareness and Action References</h4>
+<p>Origin: Added after iteration one through participant one</p>
+<p>Other terms: the training, when I taught, when I took the training</p>
+<p>Coded as: theme-awareness</p>
+<p>Definition: A connection made by the participant from the application to the in-person Awareness and Action training
+</p>
+<p>Examples: This reminds me of the Awareness and Action training.</p>
+<p>Quotes:</p>
+<ol>
+    <li>
+        <p>"I liked it was very detailed, itś a very detailed and well-thought-out and it breaks it down. So, it’s a
+            very- it’s a quite- that reminds me of the way I taught, like, in-person with the slides and stuff, so
+            definitely. I just think it’s very helpful." - P1, line  272.</p>
+    </li>
+    <li></li>
+</ol>
+<h4 id="ownership">Ownership</h4>
+<p>Origin: Added after iteration one through participant one</p>
+<p>Other terms: design suggestions, enhancements, changes, I think you should add</p>
+<p>Coded as: theme-suggestion</p>
+<p>Definition: When a participant demonstrates ownership of the product, making design suggestions or requesting
+    changes.</p>
+<p>Examples: You should do X. I would like Y better. Change Z.</p>
+<ol>
+    <li>
+        <p>"Like a game, like a small game or something like that" - P1, line  305.</p>
+    </li>
+</ol>
+<h4 id="communication">Communication</h4>
+<p>Origin: Added after iteration one through participant one</p>
+<p>Other terms: non-verbal, talking, questions</p>
+<p>Coded as: theme-communication</p>
+<p>Definition: When a participant discusses using the app to talk to other people</p>
+<p>Examples: I would use this if somebody had something happened, I would show them so they can see it, they could hold
+    up the picture and say this happened to me.</p>
+<h3 id="collaborative-design">Collaborative Design</h3>
+<p>Collaborative design (co-design) prioritizes the agency and quality of the user experience from the outset by
+    involving potential end-users directly into the design process. Often, in the case of co-designing with persons with
+    I/DD, there is a tendency for the designer to work directly with the caregiver or a network of persons close to the
+    individual as proxies, but not to the individual themselves. Unfortunately, this can marginalize the input of the
+    end-user, who may experience the world differently and thus have different needs. Brereton et al. performed two case
+    studies using <em>design after design</em>, each working closely with a population living with I/DD, in their work
+    "Design after design to bridge between people living with cognitive or sensory impairments, their friends and
+    proxies". While both case studies in this work were initiated with the help of proxies, both attempt to integrate a
+    population with I/DD deeply into the co-design effort.</p>
+<p>Both case studies were initiated using reflective agile iterative design (RAID) with proxies of the users to provide
+    a base platform to work from. Once this platform was in-place, design after design was used to iterate and refine
+    the product.</p>
+<p>The first case study was performed in collaboration with a local service organization that helped individuals with
+    I/DD. To initiate the work, researchers organized several on-site visits to the facility, in which they engaged in
+    observation of, and discussion with, clients of the service organization, their caregivers, staff of the facility,
+    and the facility manager. During these on-site sessions, researchers quickly discovered that the facility was making
+    heavy use of goals to help motivate and track the progress of their clients, a process which seemed to lack direct
+    input from the client; yet, the authors note that, finding motivation to achieve a goal one has not set for
+    themselves can be a challenge, thus motivating the need for a new solution which could better take into account the
+    input of the client. After establishing the scope of the problem Brereton et al. were attempting to alleviate,
+    researchers recruited a cohort of individuals with I/DD to test and provide feedback on an early prototype.</p>
+<p>Unfortunately, the first prototype was found to be off the mark, causing an uptick in mobile device usage during the
+    day, most likely caused by an overly complicated, and altogether too strong emphasis on, goal tracking rather than
+    goal setting. Researchers quickly adapted, creating and testing a second prototype which shifted the focus more
+    towards goal creation by super-imposing images of the user into another image which represented the users’ goal.
+    Once this prototype had gone through early testing, it was deemed stable enough to be engaged in a process of design
+    after design with potential end-users. According to the study, within 30-40 minutes participants had both taken
+    ownership of the product, proposed new design directions, and offered insights that proxies were unable to generate.
+</p>
+<p>One novel insight gained from the participants was that the "excitement and motivation for using the application was
+    different from the motivations of the proxies" <span class="citation" data-cites="brereton_design_2015">(Brereton et
+        al. 2015)</span> (page 10), instead of sharing their super-imposed images with their supervisors, participants
+    began excitedly sharing them with their friends and family. Similarly, participants began superimposing multiple
+    people onto images, another novel usage designers had not considered. Overall this first case study demonstrated
+    that while proxies may help express initial requirements for a project, actual users are more than capable of
+    providing design feedback and demonstrating novel flows through an application. The authors observed no real
+    difficulty in using the app and gained valuable insights by integrating users with I/DD directly into the co-design
+    effort.</p>
+<p>The second case study discussed in <span class="citation" data-cites="brereton_design_2015">(Brereton et al.
+        2015)</span> focused on supporting communication between home and school for children with autism spectrum
+    disorder (ASD) and language delays. The purpose of the application researchers developed was to allow children with
+    ASD to communicate by taking photos by themselves, their parents/caregivers, or their teachers. Development of this
+    application was initiated with contextual interviews and discussions with a special education classroom within a
+    primary school. Teachers in these meetings pointed out the lack of a solution to alleviate communicational
+    boundaries across various settings, the fact that their students loved photos and videos, and that their students
+    were capable of taking photos and videos on an iPad. These elements formed the basis for the first prototype.</p>
+<p>Once the design was finalized, the prototype was deployed for a six-month trial with ten families including eleven
+    children, with a researcher visiting the school every week to backup data from the iPads and to resolve any
+    problems. Due to the nature of the population in the second case study, the children were never directly
+    interviewed, instead, the observation of usage patterns and interviews with teachers and parents were used to make
+    design decisions. The application itself was a calendar in which students, parents, and teachers could upload photos
+    to any given day along with notes. Brereton et al. believed this app would be primarily used for the parent and
+    teacher to leave notes about the child, with the photos helping the child and parent communicate and reflect over
+    time.</p>
+<p>During the long-term trial, several novel utilizations of the application emerged: the application was used for show
+    and tell, which spurred inter-child communication about the things they presented, children were able to communicate
+    to their parents what their friends were doing, and parents began using the photos to prepare their children for
+    future activities by showing the child photos of themselves performing the same activity in the past. These novel
+    usages prompted several design changes, including adding the ability for a child to react to media they particularly
+    like with smiley faces and an ability to share content on their calendar to other students.</p>
+<p>Integrating individuals with I/DD into the development and design of an application can yield a number of advantages,
+    according to the results of this study, regardless of the level at which they are able to participate. Based on
+    these findings, it is the responsibility of the researcher to ensure the end-users are integrated as much as they
+    can be into every step of the design process. Unfortunately, what is not addressed here is the impact of co-design
+    on applications with narrower purposes and the impact of avoiding the use of proxies entirely. Both underlying
+    applications developed in this work involved sharing content and user-created content, actions which may have
+    encouraged the results observed; and, both started from requirements generated with the help of proxies. An
+    additional case study addressing a much narrow application footprint could have verified the efficacy of co-design
+    under a wider array of circumstances. Similarly, there is an opportunity to investigate requirements generation by
+    working directly with the end users. <span class="citation" data-cites="brereton_design_2015">(Brereton et al.
+        2015)</span></p>
+<p>Better understanding the role proxies can take in co-design, even exploiting their intimate knowledge of the
+    individuals for which they care, could prove invaluable. While Brereton et al. focused on emphasizing the role of
+    the end-user, Sitbon and Fahrin explore the impact of making proxies active participants in the co-design process.
+    Their work, "Co-Designing interactive applications with adults with intellectual disability: a case study" <span
+        class="citation" data-cites="sitbon_co-designing_2017">(Sitbon and Farhin 2017)</span> presents an argument for
+    the inclusion of four distinct features: explicit inclusion of caregivers/proxies in both communication and design,
+    presenting non-finito features (elements which have no associated action), concrete initial prototypes that the user
+    can interact with, and rapid development frameworks such as MIT App Inventor. Sitbon and Fahrin apply these four
+    elements to the problem of designing a mobile application to support individuals with I/DD whilst using public
+    transit. Motivated by a workshop with individuals with I/DD, their caregivers, and experts from various support
+    organizations, navigating public transportation was clearly identified as a barrier individuals with I/DD face in
+    their daily lives.</p>
+<p>After defining the purpose of their application, a thorough review of the literature was performed to establish
+    requirements for the initial prototype. Their final prototype could perform the following functions: alerting the
+    user before the starting their journey, providing the time remaining until the next bus arrives, keeping users on a
+    bus informed on how many stops remained before they had to depart, and pedestrian navigation between the terminal
+    bus stop and their destination. Additionally, researchers included a non-finito feature. Specifically, in this work,
+    the non-finito feature was a panic button which did nothing when pressed, obviating the need for user input during
+    the co-design sessions. Once the requirements, functionality, and non-finito feature were set, researchers composed
+    both a paper-based and digital prototype to bring to the co-design sessions.</p>
+<p>Three distinct co-design sessions were conducted, all were one hour in length, each involved one individual with I/DD
+    with the caregiver. At this stage, unlike in previous works, caregivers were explicitly requested to take an active
+    role in the discussion. Researchers hoped that by including the caregiver explicitly they could alleviate potential
+    miscommunications with, and alleviate the burden on, the individual with I/DD.</p>
+<p>Results from this case study were quite positive with regards to three of the four elements considered. Inclusion of
+    caregivers played an important role in supporting the participants as they expressed their ideas and needs, these
+    proxies to the end-user acted as translators when researchers used jargon and rationalized abstract notions (for
+    example, translating "a place you go" to a concrete location such as "work"). Researchers noted participants were
+    noticeably more engaged with the digital prototype than with the paper version, it appeared that the ability to
+    interact directly with the digital version made the experience more engaging, "evidenced by an increase in their
+    visual attention to the task, as well as an increase in their verbal responses" <span class="citation"
+        data-cites="sitbon_co-designing_2017">(Sitbon and Farhin 2017)</span> (p. 489), though no formal statistical
+    measures were taken. Incorporating the non-finito feature also provided valuable insight, with participants stating
+    that they "did not anticipate [being] comfortable asking for help" <span class="citation"
+        data-cites="sitbon_co-designing_2017">(Sitbon and Farhin 2017)</span> (p. 489) if a volunteer service were put
+    in place to help users, but that users wanted to be able to set the button to call persons in their existing support
+    network. Unfortunately, the use of a rapid design framework to incorporate changes live during the co-design
+    sessions was fraught with difficulties, stating that the one-hour duration was not a sufficient amount of time to
+    employ the tool effectively.</p>
+<p>Several conclusions can be drawn from this work, yet they are limited in their application. The strongest conclusion
+    in this work is that the explicit inclusion of proxies can help foster a deeper understanding between researchers
+    and individuals with I/DD during co-design sessions, their intimate knowledge of the individual allows them to
+    effectively translate the research questions into more concrete probes, they can then take the response of the
+    individual and add color for the researcher if needed. An argument can also be made for digital prototypes being
+    more effective than paper-based ones, yet no statistical measurements were provided as evidence of this claim,
+    rather the authors only include their (potentially biased) observations. Furthermore, their discussions around the
+    non-finito feature are more compelling, citing specific ideas and thoughts from the participants that may not have
+    been elicited had the feature been implemented rather than left to the imagination of the participant.</p>
+<p>Though this work proposes several good elements to consider in future efforts, there are limitations inherent in the
+    lack of statistical evidence provided. Thematic analysis of the reactions of the participants, surveys conducted on
+    sentiment after using the prototype, or other efforts could have increased the weight of the aforementioned claims
+    substantially, but alas these techniques were not applied. Another limitation of this study is the number of
+    participants included, only providing insights from three individuals does not provide a strong foundation to build
+    from. <span class="citation" data-cites="sitbon_co-designing_2017">(Sitbon and Farhin 2017)</span></p>
+<p>Integrating end-users into the requirements generation phase, particularly when the end-user is a person with I/DD
+    presents a challenge. The wide variety of experiences and specific difficulties in communication can make the task
+    arduous for researchers. Dæhlen and Joshi investigate immersion as a solution to this problem in their work
+    "Immersion as a Strategy to Facilitate Participatory Design Involving People With Intellectual Disabilities and
+    Caretakers as Proxies" in 2019. This study was conducted with fifty-six participants comprised of individuals with
+    I/DD, their caregivers, and staff of the participating facility. Instead of surveys and focus groups, Dæhlen and
+    Joshi immerse themselves into the life of their end users, with the hope that this immersion could produce enough
+    context to represent the end-users’ voice in phases of development where the user was not interested (or could not
+    participate) in.</p>
+<p>In order to complete this work, a researcher from their team volunteered on a weekly basis at the participating
+    activity center, accruing a total of 100 hours at the center. Along with this long-term commitment, Dæhlen and Joshi
+    also conducted contextual observation of the center, analysis of diary journaling done by the volunteer, exploratory
+    workshops, and specific interviews. To compare the impact of the immersion process, the entire corpus of data was
+    coded by both the immersed researcher and a non-immersed researcher, yielding only a 33% overlap on agreed labels.
+    Indeed this work does indicate that immersion played a large role in the meaning ascertained by the analysis
+    performed.</p>
+<p>Unfortunately, a sample size of two researchers is not conclusive. Even though one researcher did commit 100 hours to
+    the immersion process, this study must be replicated at larger scale before the evidence presented can be taken as
+    fact. Fortunately, it is substantially safer to say that immersion helped foster a somewhat deeper understanding
+    between the researcher and the participants, which can help during requirements generation. The limitation here is
+    the notion of the benefit of immersion over time, if trials were held at 10 hour intervals, one could examine the
+    divergence in interpretation of the researchers as a function of time spent with end-users, which is, unfortunately,
+    not possible to say based on this work. <span class="citation" data-cites="daehlen_immersion_2019">(Dæhlen and Joshi
+        2019)</span></p>
+<p>Co-design asserts that the developer does not understand the true needs of the end-user, something which may seem
+    self-evident, but which is not often considered. It can clearly be seen from the literature that co-design protocols
+    consistently yield novel insights, better design directions, and more satisfying applications to use - even when the
+    population may have inherent challenges communicating ideas to the developers. Future researchers must head the
+    writing on the walls, co-design is a highly effective way to produce better applications.</p>
+<p>Even though Shaban and Pearson stipulate that competition should be avoided, they simultaneously advocate for the use
+    of points to reward users, a mechanism which allows users to rank themselves against their peers, potentially
+    introducing the external competition they recommend avoiding. What Shaban and Pearson seem to overlook is the myriad
+    of alternatives one has when integrating the game element of acknowledgement. Instead of points, Kidwell et al.
+    examined the impact of using simple badges to reward scientists for open-sourcing data and/or materials in their
+    article "Badges to Acknowledge Open Practices: A Simple, Low-Cost, Effective Method for Increasing
+    Transparency" <span class="citation" data-cites="kidwell_badges_2016">(Kidwell et al. 2016)</span>. These badges
+    were binary in nature, if the author of an accepted article had properly open-sourced their data and/or materials,
+    they received the appropriate badge. The goal of these badges was to increase the quantity and quality of
+    open-source materials, in the hopes that it would make reproducing and verifying scientific results substantially
+    easier.</p>
+<p>Before January 2014, contributors to <em>Psychological Science</em> published open data/materials with less than 3%
+    of articles. Kidwell et al. speculate that the cause of this low rate is the tradeoff between the effort required to
+    curate data and the lack of reward for doing so. In January 2014, the journal began offering badges in the hopes
+    that this reward would increase the amount of publications accompanied by open data/materials. Both badges required
+    that the data/materials provided be easily accessible, verifiable, and whole. After beginning to offer these badges
+    publications with open data rose to 39%, an order of magnitude increase which was not seen at other publications
+    which did not introduce the intervention.</p>
+<p>Based on the results in this work one can conclude that simple acknowledgement, such as badges, may be an effective
+    motivational tool. Unfortunately, this study did not include a phase in which the badges themselves were kept
+    private. Thus, it becomes hard to disentangle the impact of acknowledgement on its own and the external competition
+    that the badges may have created. Since other researchers could see when a researcher achieved a badge, it becomes
+    difficult to conclude if this intervention caused an intrinsic motivation or extrinsic motivation for researchers to
+    comply. <span class="citation" data-cites="kidwell_badges_2016">(Kidwell et al. 2016)</span></p>
+<h3 id="sec:related-evaluations">User Evaluations</h3>
+<p>Usability testing often incorporates a notion of thinking aloud by the participant to help elicit information during
+    the evaluation. Overall there are three studied methods for think aloud research, namely <em>concurrent think
+        aloud</em>, where users are asked to think aloud whilst using the application; <em>retrospective think
+        aloud</em>, where users complete their given tasks and then provide commentary whilst watching their actions
+    within a video; and, <em>hybrid methods</em>, which combine the two. Alhadreti and Mayhew examine which of these
+    methods is most effective in their work "Rethinking Thinking Aloud: A Comparison of Three Think-Aloud Protocols" in
+    2018. Specifically, they examine tradeoffs between all three methods in terms of efficacy, number of problems found,
+    and cost as a function of time spent by the researchers and participants, as well as the emotional impact each
+    method has on the participants themselves.</p>
+<p>Researchers selected a university library website as the foundation for their testing, selecting a number of tasks
+    which could be completed independently on the site, and recruiting sixty participants, all of which were students of
+    the university, as they made up 85% of the users for the website. Participants were segmented into three groups of
+    twenty with nearly identical demographic composition to control for individual user capabilities. After
+    familiarizing participants to the computer they would use for the evaluation, each group completed all given tasks
+    under various conditions, the concurrent and hybrid groups were instructed to think aloud whilst completing the
+    activities, whereas the retrospective group were given no instruction and completed the tasks in silence. Once the
+    tasks were completed, users in the hybrid and retrospective groups were then asked to watch silent video playbacks
+    of their actions and provide commentary on what happened.</p>
+<p>No statistically significant difference was found amongst the groups in regards to task completion, satisfaction with
+    the site overall, nor did participants believe their work was different from their normal work, regardless of
+    whether they had to think aloud whilst performing their tasks. However, participants did find the hybrid and
+    retrospective protocols significantly more time consuming that the concurrent group. Besides the participants
+    perception of the experience, researchers also collected empirical data on the number of usability issues uncovered
+    in each of the three cohorts. Overall, the concurrent think aloud method was the most efficient method studied,
+    uncovering 47/75 issues and taking 29 minutes per issue, where time per issue is measured as the combination of time
+    that the participant takes to complete the evaluation and that the researcher takes in completing the analysis. The
+    hybrid method was the next-most efficient, finding 52/75 issues, but taking 45 minutes per issue uncovered, whereas
+    the retrospective method uncovered only 33 issues and took the longest, resulting in 68 minutes spent per issue
+    uncovered.</p>
+<p>It is worth noting that most of the discrepancy in the number of issues found is in what are considered "minor"
+    issues, all three protocols were able to uncover nearly the same set of critical issues, indicating that while all
+    three methods can provide the most critical information, the concurrent protocol should be preferred where possible.
+    Limitations with this study are mostly contained to the demographic used. University students are not indicative of
+    the population at large, especially considering the elderly or persons with I/DD, who may have a harder time
+    thinking aloud and completing the tasks. Particularly of interest for populations with I/DD, the authors postulate
+    that one deficiency in the retrospective protocol may be in the limits of working memory, with participants failing
+    to remember what they struggled with during the evaluation phase. This concern is particularly important when
+    considering populations which may have a diminished working memory capacity. <span class="citation"
+        data-cites="alhadreti-rethinking-2018">(Alhadreti and Mayhew 2018)</span></p>
+<p>Evaluating a product with an end-user is important to understand whether or not it achieves its goal. Finding
+    candidates to for these evaluations can be challenging when a specific demographic is needed, especially one which
+    may be considered at-risk or vulnerable. Individuals with I/DD represent an even greater challenge as they may need
+    assistance with transport and communication via their caregiver or a family member, increasing the logistical
+    burden. Petrie et al. explored the use of remote evaluations to lessen this burden in their work "Remote Usability
+    Evaluations with Disabled People" in 2006. They report on two case studies in which partially remote evaluations
+    were used, comparing the methodology and effectiveness of remote vs local evaluations with persons with I/DD. In
+    both case studies, the remote portions were done asynchronously; in one case study, participants were trained
+    locally before completing the evaluations remotely, in the other, participants were sent instructions and expected
+    to train themselves.</p>
+<p>Case study one was comprised of a formative evaluation of a software system with participants who were blind. This
+    system was first evaluated in-person, with participants either going to the lab or the researchers traveling to the
+    participants. After the local interviews were complete, Petrie et al. completed a round of remote evaluations and
+    compared the results. During the in-person evaluations, participants were asked to think aloud whilst attempting the
+    specified tasks and then debriefed by the researcher, whereas during the remote evaluations, participants were asked
+    to make notes on problems as they encountered them, after the remote participants completed their tasks, researchers
+    would call them on the telephone to complete the debriefing remotely.</p>
+<p>Analysis of this study revealed only one statistically significant difference in responses between the two groups,
+    involving a feature of the software that required researcher-intervention during the in-person evaluations. One
+    hypothesis presented was that the remote evaluators, not having the intervention, may have believed that they had
+    correctly used the feature, whereas local participants were made aware of the issue and were thus able to describe
+    the shortcomings of that feature more precisely. This statistical difference in the one feature which required local
+    intervention highlights the dangers of remote asynchronous evaluations as a researcher cannot know if a task was
+    completed "correctly" or whether the participants simply believes it to be so. Another issue noted by Petrie et al.
+    was the qualitative difference between the in-person and remote reviews, although rankings were mostly similar
+    between the two cohorts, the remote evaluators provided much higher-level feedback, often times not addressing
+    specific usability issues, but rather sentiments about the feature in it’s totality.</p>
+<p>Case study two examined summative evaluations of websites by persons with I/DD. In total, fifty participants with
+    I/DD were enlisted to evaluate one-hundred different websites, each participant would evaluate ten sites and perform
+    two pre-determined tasks per site. Before remote evaluations began, participants visited the laboratory in-person to
+    complete two evaluations with a researcher guiding them through the protocol, participants would then evaluate one
+    additional site on their own at the laboratory to ensure they understood the protocol, leaving seven evaluations to
+    be completed on their own personal computers. During the first two evaluations, participants were asked to think
+    aloud during each task, researchers recorded all problems encountered and when the task was complete, the researcher
+    asked the participant to rate the difficulty of the individual task on a scale of one (very difficult) to seven
+    (very easy). After completing both tasks on a site, participants answered overall questions on the website and rated
+    how easy they thought the website was to use with their disabilities. Remote evaluations were to be completed in as
+    similar a manner as possible to the in-person evaluations, with users being asked to record any difficulties they
+    had, rate the difficulty of the tasks, and rate the website overall; additionally, they were asked to rate how
+    confident they were that they had completed the task successfully.</p>
+<p>While analysis of the data collected yielded no significant difference in success rates (perceived by the user vs
+    recorded by the researcher), significant difference was observed in the number of errors recorded by the users and
+    in the quality of these reports compared to the number and quality of errors recorded by the researchers, although
+    there was no significant difference in the overall ratings of the websites’ usability. Petrie et al. conclude that
+    quantitative data does not suffer during remote asynchronous evaluations, but qualitative data does. This conclusion
+    provides good guidance as we continue to integrate technology into daily life, especially during the current climate
+    with the prevalence of the novel coronavirus. However, one must note the strong limitation that Petrie et al. did
+    not conduct nor compare results from a synchronous evaluation, which may potentially alleviate the raised concerns
+    with remote participation. <span class="citation" data-cites="petrie-remote-2006">(Petrie et al. 2006)</span></p>
+<p>Fortunately, a more direct comparison of remote evaluation techniques was conducted, though participants were
+    able-bodied, in 2007 in Siker et al.’s work "What Happened to Remote Usability Testing? An Empirical Study of Three
+    Methods". In their study, they focused on empirically comparing remote evaluation techniques, both synchronously and
+    asynchronously, to local usability evaluations. To effectively compare the results of their study, both local and
+    remote synchronous evaluations were completed in a lab setting, with the former having a moderator sitting with the
+    participant and the latter situating the moderator in an adjacent room, utilizing video conferencing software as if
+    the participant were in a remote setting, thus allowing them to control for as many factors as possible in their
+    comparison. Asynchronous evaluations were carried out by two cohorts, one comprised of formally trained usability
+    experts, the other being made up of end users. All groups were tasked with completing several tasks using the
+    open-source mail client <em>Thunderbird</em>.</p>
+<p>In order to measure the impact of each different evaluation technique, all participants were asked to report on three
+    types of usability issues: mild, moderate, and severe issues, where mild issues posed only minor inconvenience,
+    moderate issues required greater than thirty seconds to resolve, and severe issues prevented completion of the task
+    altogether. Overall, researchers noted a marked decline in the number of issues recovered by the asynchronous
+    groups, independent of their composition being experts or end users. Fortunately, researchers observed no
+    statistically significant difference in any metric between the local and remote synchronous groups. Also of note,
+    participants in the remote synchronous trial reported it being less stressful than participants in the local
+    evaluations, this being potentially related to not having a moderator peering over their shoulders whilst they
+    attempt to navigate the application.</p>
+<p>While Andreasen et al.’s results are promising, the application of their work is limited with regards to individuals
+    with I/DD who may suffer from acute difficulties in communication and utilization of hardware to participate in
+    remote usability studies. Moreover, users in the synchronous evaluations were not tasked with installation of the
+    required software, nor dealing with network latencies or technical issues that may plague research in a
+    not-so-controlled environment. Little is known about the effects multiple interruptions and technical issues can
+    have on remote synchronous evaluations, yet these issues may be quite common in practice, when dealing with
+    user-controlled hardware and internet connections that may not be fast enough to handle continuous video
+    conferencing. <span class="citation" data-cites="andreasen-what-2007">(Andreasen et al. 2007)</span></p>
+<p>User evaluations are a crucial step in measuring the success of an application. Evaluating a product in-person has
+    been the gold-standard for decades, yet the current pandemic demands that researchers implement remote evaluations
+    wherever possible. To this end, preceding works have demonstrated that the difference between in-person and remote
+    synchronous evaluations is very slight with able-bodied individuals. Moreover, both in-person and remote
+    evaluations, if done synchronously, permit the use of concurrent think-aloud, one of the most effective mechanisms
+    for collecting user feedback.</p>
+<p>Unfortunately, preceding works fail to address issues that may occur when completing remote synchronous evaluations
+    with persons with I/DD who may have specific technical needs, or have difficulty communicating. Moreover, conducting
+    remote synchronous evaluations when the user is required to bring their own device and use their own internet
+    connection can also pose problems which have not been addressed.</p>
+<p>graphics: yes</p>
+<div id="refs" class="references">
+    <div id="ref-alhadreti-rethinking-2018">
+        <p>Alhadreti, Obead, and Pam Mayhew. 2018. “Rethinking Thinking Aloud: A Comparison of Three Think-Aloud
+            Protocols.” In <em>Proceedings of the 2018 Chi Conference on Human Factors in Computing Systems</em>, 1–12.
+            CHI ’18. New York, NY, USA: Association for Computing Machinery. <a
+                href="https://doi.org/10.1145/3173574.3173618">https://doi.org/10.1145/3173574.3173618</a>.</p>
+    </div>
+    <div id="ref-andreasen-what-2007">
+        <p>Andreasen, Morten Sieker, Henrik Villemann Nielsen, Simon Ormholt Schrøder, and Jan Stage. 2007. “What
+            Happened to Remote Usability Testing? An Empirical Study of Three Methods.” In <em>Proceedings of the Sigchi
+                Conference on Human Factors in Computing Systems</em>, 1405–14. CHI ’07. New York, NY, USA: Association
+            for Computing Machinery. <a
+                href="https://doi.org/10.1145/1240624.1240838">https://doi.org/10.1145/1240624.1240838</a>.</p>
+    </div>
+    <div id="ref-ayres_computer-_2010">
+        <p>Ayres, Kevin, and David Cihak. 2010. “Computer- and Video-Based Instruction of Food-Preparation Skills:
+            Acquisition, Generalization, and Maintenance.” <em>Intellectual and Developmental Disabilities</em> 48 (3):
+            195–208. <a
+                href="https://doi.org/10.1352/1944-7558-48.3.195">https://doi.org/10.1352/1944-7558-48.3.195</a>.</p>
+    </div>
+    <div id="ref-brereton_design_2015">
+        <p>Brereton, Margot, Laurianne Sitbon, Muhammad Haziq Lim Abdullah, Mark Vanderberg, and Stewart Koplick. 2015.
+            “Design After Design to Bridge Between People Living with Cognitive or Sensory Impairments, Their Friends
+            and Proxies.” <em>CoDesign</em> 11 (1): 4–20. <a
+                href="https://doi.org/10.1080/15710882.2015.1009471">https://doi.org/10.1080/15710882.2015.1009471</a>.
+        </p>
+    </div>
+    <div id="ref-buehler_accessibility_2016">
+        <p>Buehler, Erin, William Easley, Amy Poole, and Amy Hurst. 2016. “Accessibility Barriers to Online Education
+            for Young Adults with Intellectual Disabilities.” In <em>Proceedings of the 13th Web for All
+                Conference</em>, 27:1–27:10. W4A ’16. New York, NY, USA: ACM. <a
+                href="https://doi.org/10.1145/2899475.2899481">https://doi.org/10.1145/2899475.2899481</a>.</p>
+    </div>
+    <div id="ref-carroll-2000">
+        <p>Carroll, J.M. 2000. “Introduction to this Special Issue on ‘Scenario-Based System Development’.”
+            <em>Interacting with Computers</em> 13 (1): 41–42. <a
+                href="https://doi.org/10.1016/S0953-5438(00)00022-9">https://doi.org/10.1016/S0953-5438(00)00022-9</a>.
+        </p>
+    </div>
+    <div id="ref-constantine-1999">
+        <p>Constantine, Larry L, and Lucy AD Lockwood. 1999. <em>Software for Use: A Practical Guide to the Models and
+                Methods of Usage-Centered Design</em>. Pearson Education.</p>
+    </div>
+    <div id="ref-cooper-1999">
+        <p>Cooper, Alan. 1999. <em>The Inmates Are Running the Asylum</em>. Edited by Candace Hall. Boger, Paul.</p>
+    </div>
+    <div id="ref-daehlen_immersion_2019">
+        <p>Dæhlen, Asmund, and Suhas Govind Joshi. 2019. “Immersion as a Strategy to Facilitate Participatory Design
+            Involving People with Intellectual Disabilities and Caretakers as Proxies.” In. <a
+                href="https://www.duo.uio.no/bitstream/handle/10852/68792/achi_2019_4_30_20168%2b%25281%2529.pdf?sequence=1&amp;isAllowed=y">https://www.duo.uio.no/bitstream/handle/10852/68792/achi_2019_4_30_20168%2b%25281%2529.pdf?sequence=1&amp;isAllowed=y</a>.
+        </p>
+    </div>
+    <div id="ref-hughes-2012">
+        <p>Hughes, Karen, Mark A Bellis, Lisa Jones, Sara Wood, Geoff Bates, Lindsay Eckley, Ellie McCoy, Christopher
+            Mikton, Tom Shakespeare, and Alana Officer. 2012. “Prevalence and Risk of Violence Against Adults with
+            Disabilities: A Systematic Review and Meta-Analysis of Observational Studies.” <em>The Lancet</em> 379
+            (9826): 1621–9. <a
+                href="https://doi.org/10.1016/s0140-6736(11)61851-5">https://doi.org/10.1016/s0140-6736(11)61851-5</a>.
+        </p>
+    </div>
+    <div id="ref-kidwell_badges_2016">
+        <p>Kidwell, Mallory C, Ljiljana B Lazarević, Erica Baranski, Tom E Hardwicke, Sarah Piechowski, Lina-Sophia
+            Falkenberg, Curtis Kennett, et al. 2016. “Badges to Acknowledge Open Practices: A Simple, Low-Cost,
+            Effective Method for Increasing Transparency.” <em>PLoS Biology</em> 14 (5): e1002456–e1002456. <a
+                href="https://doi.org/10.1371/journal.pbio.1002456">https://doi.org/10.1371/journal.pbio.1002456</a>.
+        </p>
+    </div>
+    <div id="ref-laiola_guimaraes_exploring_2015">
+        <p>Laiola Guimarães, Rodrigo, and Andrea Britto Mattos. 2015. “Exploring the Use of Massive Open Online Courses
+            for Teaching Students with Intellectual Disability.” In <em>Proceedings of the 17th International ACM
+                SIGACCESS Conference on Computers &amp; Accessibility</em>, 343–44. ASSETS ’15. New York, NY, USA: ACM.
+            <a href="https://doi.org/10.1145/2700648.2811370">https://doi.org/10.1145/2700648.2811370</a>.
+        </p>
+    </div>
+    <div id="ref-macdonald_gamification_2019">
+        <p>Macdonald, Shaun Alexander, and Stephen Brewster. 2019. “Gamification of a to-Do List with Emotional
+            Reinforcement.” In <em>Extended Abstracts of the 2019 CHI Conference on Human Factors in Computing Systems -
+                CHI EA ’19</em>, 1–6. Glasgow, Scotland Uk: ACM Press. <a
+                href="https://doi.org/10.1145/3290607.3313060">https://doi.org/10.1145/3290607.3313060</a>.</p>
+    </div>
+    <div id="ref-morales-villaverde_online_2016">
+        <p>Morales-Villaverde, Lourdes M., Karina Caro, Taylor Gotfrid, and Sri Kurniawan. 2016. “Online Learning System
+            to Help People with Developmental Disabilities Reinforce Basic Skills.” In <em>Proceedings of the 18th
+                International ACM SIGACCESS Conference on Computers and Accessibility</em>, 43–51. ASSETS ’16. New York,
+            NY, USA: ACM. <a href="https://doi.org/10.1145/2982142.2982174">https://doi.org/10.1145/2982142.2982174</a>.
+        </p>
+    </div>
+    <div id="ref-petrie-remote-2006">
+        <p>Petrie, Helen, Fraser Hamilton, Neil King, and Pete Pavan. 2006. “Remote Usability Evaluations with Disabled
+            People.” In, 2:1133–41. <a
+                href="https://doi.org/10.1145/1124772.1124942">https://doi.org/10.1145/1124772.1124942</a>.</p>
+    </div>
+    <div id="ref-shaban_learning_2019">
+        <p>Shaban, Adel, and Elaine Pearson. 2019. “A Learning Design Framework to Support Children with Learning
+            Disabilities Incorporating Gamification Techniques.” In <em>Extended Abstracts of the 2019 CHI Conference on
+                Human Factors in Computing Systems - CHI EA ’19</em>, 1–6. Glasgow, Scotland Uk: ACM Press. <a
+                href="https://doi.org/10.1145/3290607.3312806">https://doi.org/10.1145/3290607.3312806</a>.</p>
+    </div>
+    <div id="ref-sharp-2019">
+        <p>Sharp, Helen. 2019. <em>Interaction Design: Beyond Human-Computer Interaction, Fifth Edition</em>. Wiley;
+            Sons Canada, Limited, John.</p>
+    </div>
+    <div id="ref-sitbon_co-designing_2017">
+        <p>Sitbon, Laurianne, and Shanjana Farhin. 2017. “Co-Designing Interactive Applications with Adults with
+            Intellectual Disability: A Case Study.” In <em>Proceedings of the 29th Australian Conference on
+                Computer-Human Interaction</em>, 487–91. OZCHI ’17. New York, NY, USA: ACM. <a
+                href="https://doi.org/10.1145/3152771.3156163">https://doi.org/10.1145/3152771.3156163</a>.</p>
+    </div>
+    <div id="ref-ma-laws">
+        <p>“The 191st General Court of the Commonwealth of Massachusetts: General Laws Part I, Title Ii, Chapter 19C,
+            Section 1.” 2020. <a
+                href="https://malegislature.gov/laws/generallaws/parti/titleii/chapter19c/section1/">https://malegislature.gov/laws/generallaws/parti/titleii/chapter19c/section1/</a>.
+        </p>
+    </div>
+    <div id="ref-toda_taxonomy_2019">
+        <p>Toda, Armando M., Alexandra I. Cristea, Wilk Oliveira, Ana C. Klock, Paula T. Palomino, Marcelo Pimenta,
+            Isabela Gasparini, Lei Shi, Ig Bittencourt, and Seiji Isotani. 2019. “A Taxonomy of Game Elements for
+            Gamification in Educational Contexts: Proposal and Evaluation.” In <em>2019 IEEE 19th International
+                Conference on Advanced Learning Technologies (ICALT)</em>, 84–88. Maceió, Brazil: IEEE. <a
+                href="https://doi.org/10.1109/ICALT.2019.00028">https://doi.org/10.1109/ICALT.2019.00028</a>.</p>
+    </div>
+    <div id="ref-valenti-hein_sexual_1995">
+        <p>Valenti-Hein, D., and L.D. Schwartz. 1995. <em>The Sexual Abuse Interview for Those with Developmental
+                Disabilities</em>. James Stanfield Company. <a
+                href="https://books.google.com/books?id=uJMPmAEACAAJ">https://books.google.com/books?id=uJMPmAEACAAJ</a>.
+        </p>
+    </div>
+    <div id="ref-venkatasubramanian-exploring-2021">
+        <p>Venkatasubramanian, K., J. Skorinko, M. Kobeissi, B. Lewis, N. Jutras, P. Bosma, J. Mullaly, et al. 2021.
+            “Exploring Abuse Reporting for People with Intellectual and Developmental Disabilities.” In <em>ACM Chi
+                Conference on Human Factors in Computing Systems (in Review)</em>.</p>
+    </div>
+</div>
+<section class="footnotes">
+    <hr />
+    <ol>
+        <li id="fn1">
+            <p>Within this work abuse is defined as “<em>an act or omission which results in serious physical or
+                    emotional injury to a disabled person</em>” <span class="citation" data-cites="ma-laws">(“The 191st
+                    General Court of the Commonwealth of Massachusetts: General Laws Part I, Title Ii, Chapter 19C,
+                    Section 1” 2020)</span>.<a href="#fnref1" class="footnote-back">↩</a></p>
+        </li>
+        <li id="fn2">
+            <p>A self-advocate is an individual who speaks up for themselves and their own interests. It is used to
+                describe individuals involved in mutual aid networks for individuals with I/DD.<a href="#fnref2"
+                    class="footnote-back">↩</a></p>
+        </li>
+    </ol>
+</section>

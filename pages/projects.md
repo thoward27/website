@@ -8,6 +8,21 @@ tags:
 ---
 # Projects
 
+## R<sup>3</sup>
+
+In the US, 9/10 individuals with Intellectual/Developmental Disabilities (IDD) will experience at least one instance of abuse.
+Moreover, individuals with I/DD are generally at a higher risk of violence, such as assault or other violent crimes, than individuals without disabilities.
+Yet, incidents of abuse against individuals with I/DD remains severely under reported.
+For example, *only 3\% of sexual abuse cases involving persons with I/DD are **ever** reported*
+
+R<sup>3</sup> is a native application designed to refresh knowledge of abuse for individuals with intellectual/developmental disabilities.
+Its goal is to empower neurologically atypical individuals to identify and report abuse when it happens.
+The application is written in Dart/Flutter; development is still active, source code is not yet available.
+
+[Presentation](https://thoward27.github.io/thesis-presentation/)
+[Thesis](/static/thesis.pdf)
+
+
 ## Grade & Gradelang
 
 Grade and Gradelang focus on solving the problem of autograding in computer science.
@@ -25,6 +40,7 @@ Building off of the work done for [CHESS](https://github.com/nishaq503/CHESS), w
 Our goal is to provide sub-linear time searches, sub-linear memory compression, and to explore what can be done with the learned manifold.
 
 [Github](https://github.com/URI-ABD/clam)
+[arXiv](https://arxiv.org/abs/2103.11774)
 
 ## Data Structures and Algorithms in C++
 
