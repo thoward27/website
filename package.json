@@ -1,6 +1,6 @@
 {
   "name": "tom-howard",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "My website.",
   "scripts": {
     "build": "npx eleventy",
@@ -14,7 +14,7 @@
   },
   "author": {
     "name": "Tom Howard",
-    "email": "info@tomhowrad.codes",
+    "email": "info@tomhoward.codes",
     "url": "https://www.tomhoward.codes/"
   },
   "license": "MIT",
