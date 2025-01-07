@@ -8,6 +8,14 @@ tags:
 ---
 # Projects
 
+## Bookclub Managment Made Easy
+
+Bookclub is a Loco.rs application designed to help you manage your book club.
+It allows you to manage meetings, attendance, books, and more, in the simplest way possible.
+
+[Github Repo](https://github.com/thoward27/bookclub)
+
+
 ## Using a Digital Application to Refresh Knowledge of Abuse for Individuals with Intellectual/Developmental Disabilities
 
 In the US, 9/10 individuals with Intellectual/Developmental Disabilities (IDD) will experience at least one instance of abuse.
