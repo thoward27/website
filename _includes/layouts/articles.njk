@@ -5,11 +5,11 @@ pagination:
     data: collections.post
     size: 6
     alias: posts
-    reverse: true
+    reverse: false
 ---
 {% from "components/posts.njk" import card %}
 
-{{ layoutContent | safe }}
+{{ content | safe }}
 
 <section>
 	{% for post in posts | reverse %}
